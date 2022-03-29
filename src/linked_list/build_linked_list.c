@@ -25,13 +25,11 @@ void add_node(struct list *pile, int nb)
 list_t *build_link(int ac, char **av)
 {
     list_t *pile = malloc(sizeof(list_t));
-    pile->nb = my_getnbr(av[1]);
     pile->next = NULL;
     pile->prev = NULL;
     int temp = 0;
 
     for (int i = 2; i < ac; i++) {
-        temp = my_getnbr(av[i]);
         add_node(pile, temp);
     }
     return (pile);

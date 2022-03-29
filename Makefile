@@ -5,9 +5,12 @@
 ## Makefile
 ##
 
-SRC 		= 	src/data_to_array_str.c	\
-				src/get_len_array.c		\
-				src/lem_in.c 			\
+SRC 		= 	src/data_to_array_str.c					\
+				src/get_len_array.c						\
+
+LISTSRC		=	src/linked_list/build_linked_list.c 	\
+				src/linked_list/display_linked_list.c 	\
+				src/linked_list/free_linked_list.c 		\
 
 MAIN		=	src/main.c
 
@@ -16,6 +19,7 @@ TEST_FONC	=	#	tests/test_put_users_rights.c
 MAIN_DEBUG	=	# src/test_main.c	\
 
 OBJ_SRC		=	$(SRC:.c=.o)
+OBJ_LIST	= 	$(LISTSRC:.c=.o)
 OBJ_MAIN	=	$(MAIN:.c=.o)
 
 OBJ_TEST	+=	$(OBJ_SRC)
@@ -46,8 +50,8 @@ MV			=	mv
 
 all:		$(NAME)
 
-$(NAME):	make_lib $(OBJ_SRC)
-			$(CC) $(OBJ_SRC) $(MAIN) $(CFLAGS) -o $(NAME) $(LFLAGS)
+$(NAME):	make_lib $(OBJ_SRC) $(OBJ_LIST)
+			$(CC) $(OBJ_SRC) $(OBJ_LIST) $(MAIN) $(CFLAGS) -o $(NAME) $(LFLAGS)
 			@printf "\033[33m[Message]\033[39m %s\n" $(NAME)
 
 make_lib:

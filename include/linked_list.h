@@ -8,6 +8,8 @@
 #ifndef LINKED_LIST_H_
     #define LINKED_LIST_H_
     #include <unistd.h>
+    #include "my.h"
+    #include <stdlib.h>
 
     typedef struct list_s
     {

@@ -6,6 +6,7 @@
 */
 
 #include "linked_list.h"
+#include "my.h"
 
 void display_pile(list_t *pile)
 {
