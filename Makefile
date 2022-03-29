@@ -16,13 +16,12 @@ MAIN		=	src/main.c
 
 TEST_FONC	=	#	tests/test_put_users_rights.c
 
-MAIN_DEBUG	=	# src/test_main.c	\
-
 OBJ_SRC		=	$(SRC:.c=.o)
 OBJ_LIST	= 	$(LISTSRC:.c=.o)
 OBJ_MAIN	=	$(MAIN:.c=.o)
 
 OBJ_TEST	+=	$(OBJ_SRC)
+OBJ_TEST	+=	$(OBJ_LIST)
 OBJ_TEST	+=	$(TEST_FONC:.c=.o)
 
 CC			=	gcc
@@ -35,9 +34,7 @@ TESTS_FLAGS	=	--coverage -lcriterion -I./include
 
 LFLAGS	=	-L./lib -lmy
 
-NAME		=	temp_name
-
-NAME_DEBUG	=	#	debug
+NAME		=	lem_in
 
 RM			=	rm -rf
 
@@ -50,8 +47,9 @@ MV			=	mv
 
 all:		$(NAME)
 
-$(NAME):	make_lib $(OBJ_SRC) $(OBJ_LIST)
-			$(CC) $(OBJ_SRC) $(OBJ_LIST) $(MAIN) $(CFLAGS) -o $(NAME) $(LFLAGS)
+$(NAME):	make_lib $(OBJ_SRC) $(OBJ_LIST) $(OBJ_MAIN)
+			$(CC) $(OBJ_SRC) $(OBJ_LIST) $(OBJ_MAIN) $(CFLAGS) -o $(NAME)
+			$(LFLAGS)
 			@printf "\033[33m[Message]\033[39m %s\n" $(NAME)
 
 make_lib:
@@ -63,6 +61,7 @@ debug:		re
 clean:
 			@$(RM) $(OBJ_MAIN)
 			@$(RM) $(OBJ_SRC)
+			@$(RM) $(OBJ_LIST)
 			@$(RM) $(OBJ_TEST)
 			@$(MK) -C lib/my/ clean
 
