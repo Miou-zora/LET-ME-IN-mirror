@@ -13,3 +13,7 @@ jobs:
           git@github.com:EpitechPromo2026/B-CPE-200-NAN-2-1-lemin-timothee.lesellier.git
         ssh_private_key:
           ${{ secrets.THE_KEY }}
+    - name: build application
+      run: make
+    - name: run app
+      run: ./lem_in
