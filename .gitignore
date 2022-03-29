@@ -1,0 +1,8 @@
+*.o
+*.gc*
+*~
+#*#
+*.a
+.vscode
+*.txt
+lem_in

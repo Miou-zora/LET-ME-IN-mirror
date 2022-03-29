@@ -1,0 +1,19 @@
+/*
+** EPITECH PROJECT, 2022
+** B-CPE-200-NAN-2-1-lemin-timothee.lesellier
+** File description:
+** linked_list
+*/
+
+#ifndef LINKED_LIST_H_
+    #define LINKED_LIST_H_
+    #include <unistd.h>
+
+    typedef struct list_s
+    {
+        int nb;
+        struct list **prev;
+        struct list **next;
+    } list_t;
+
+#endif /* !LINKED_LIST_H_ */
