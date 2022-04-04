@@ -23,6 +23,6 @@ jobs:
     - uses: pixta-dev/repository-mirroring-action@v1
       with:
         target_repo_url:
-          git@github.com:EpitechPromo2026/B-CPE-200-NAN-2-1-lemin-timothee.lesellier.git
+          ${{ secrets.THE_REPO }}
         ssh_private_key:
           ${{ secrets.THE_KEY }}
