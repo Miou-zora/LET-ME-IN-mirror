@@ -2,7 +2,8 @@ name : mirror
 on: [push]
 jobs:
   to_github:
-    runs-on: docker pull epitechcontent/epitest-docker
+    runs-on: ubuntu-latest
+    container: docker pull epitechcontent/epitest-docker
     steps:
     - uses: actions/checkout@v3
       with:
