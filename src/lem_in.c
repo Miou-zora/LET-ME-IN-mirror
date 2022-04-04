@@ -9,5 +9,5 @@
 
 int lem_in(int ac, char **av)
 {
-    return (0);
+    return (84);
 }
