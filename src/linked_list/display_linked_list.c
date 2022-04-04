@@ -10,12 +10,12 @@
 
 void display_pile(list_t *pile)
 {
-    list_t *temp = pile;
+    // list_t *temp = pile;
 
-    while (temp != NULL) {
-        my_put_nbr(temp->nb);
-        temp = temp->next;
-        my_putstr(" ");
-    }
-    my_putchar('\n');
+    // while (temp != NULL) {
+    //     my_put_nbr(temp->nb);
+    //     temp = temp->next;
+    //     my_putstr(" ");
+    // }
+    // my_putchar('\n');
 }

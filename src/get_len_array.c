@@ -10,9 +10,9 @@
 
 int get_len_array(char **array)
 {
-    int i = 0;
-    while (array[i] != NULL) {
-        i++;
-    }
-    return (i);
+    // int i = 0;
+    // while (array[i] != NULL) {
+    //     i++;
+    // }
+    // return (i);
 }

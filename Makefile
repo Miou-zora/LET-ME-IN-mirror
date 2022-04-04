@@ -7,6 +7,7 @@
 
 SRC 		= 	src/data_to_array_str.c					\
 				src/get_len_array.c						\
+				src/lem_in.c 							\
 
 LISTSRC		=	src/linked_list/build_linked_list.c 	\
 				src/linked_list/display_linked_list.c 	\

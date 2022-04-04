@@ -2,7 +2,7 @@ name : mirror
 on: [push]
 jobs:
   to_github:
-    runs-on: ubuntu-latest
+    runs-on: docker pull epitechcontent/epitest-docker
     steps:
     - uses: actions/checkout@v3
       with:
@@ -17,3 +17,5 @@ jobs:
       run: make
     - name: run app
       run: ./lem_in
+    - name: run tests
+      run: make tests_run
