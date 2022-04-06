@@ -42,6 +42,10 @@
 int lem_in(int ac, char **av);
 int load_data_from_file(data_t *data);
 
+//!error handling
+int check_error_file(error_comter_t *error_comter_s);
+int check_error_file_end(error_comter_t *error_comter_s);
+
 //!useful fonctions
 
 int is_str_nbr(char *str);

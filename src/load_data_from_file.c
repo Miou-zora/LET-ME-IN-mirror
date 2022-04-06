@@ -16,17 +16,6 @@ void init_error_comter(error_comter_t *error_comter_s)
     error_comter_s->end = 0;
 }
 
-int check_error_file(error_comter_t *error_comter_s)
-{
-    if (error_comter_s->ants > 1)
-        return (84);
-    if (error_comter_s->start > 1)
-        return (84);
-    if (error_comter_s->end > 1)
-        return (84);
-    return (0);
-}
-
 int analyse_get_value(char *buff, data_t *data_s,
 error_comter_t *error_comter_s)
 {
@@ -68,15 +57,15 @@ int load_data_from_file(data_t *data_s)
     int is_error = 0;
 
     init_error_comter(error_comter_s);
-    if (getline(&buff, &buffsize, stdin) == -1) {
-        free(buff);
+    if (getline(&buff, &buffsize, stdin) == -1)
         return (84);
-    }
     do {
         is_error = analyse_get_value(buff, data_s, error_comter_s);
         if (is_error == 84 || check_error_file(error_comter_s) == 84)
             return (84);
     } while (getline(&buff, &buffsize, stdin) != -1);
+    if (check_error_file_end(error_comter_s) == 84)
+        return (84);
     free(buff);
     free(error_comter_s);
     return (0);
