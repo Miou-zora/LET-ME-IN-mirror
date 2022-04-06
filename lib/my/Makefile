@@ -49,7 +49,10 @@ SRC		=	fonctions/my_compute_power_rec.c		\
 			fonctions/my_printf.c					\
 			fonctions/myf_putbase.c					\
 			fonctions/my_convert_base.c				\
-			fonctions/my_fputthat.c
+			fonctions/my_fputthat.c					\
+			fonctions/data_to_array_str.c			\
+			fonctions/get_len_array.c				\
+			fonctions/print_array_str.c				\
 
 INCLUDE	=	my.h
 
