@@ -5,10 +5,9 @@
 ## Makefile
 ##
 
-SRC 		= 	src/data_to_array_str.c					\
-				src/get_len_array.c						\
-				src/lem_in.c 							\
+SRC 		= 	src/lem_in.c 							\
 				src/load_data_from_file.c 				\
+				src/is_number.c 						\
 
 LISTSRC		=	src/linked_list/build_linked_list.c 	\
 				src/linked_list/display_linked_list.c 	\
@@ -16,7 +15,7 @@ LISTSRC		=	src/linked_list/build_linked_list.c 	\
 
 MAIN		=	src/main.c
 
-TEST_FONC	=	#	tests/test_put_users_rights.c
+TEST_FONC	=	tests/test_is_number.c 				\
 
 OBJ_SRC		=	$(SRC:.c=.o)
 OBJ_LIST	= 	$(LISTSRC:.c=.o)
@@ -34,7 +33,7 @@ CFLAGS		=	-Wall -Wextra -Wshadow -Werror -I./include
 
 TESTS_FLAGS	=	--coverage -lcriterion -I./include
 
-LFLAGS	=	-L./lib -lmy
+LFLAGS		=	-L./lib -lmy
 
 NAME		=	lem_in
 
@@ -50,7 +49,7 @@ MV			=	mv
 all:		$(NAME)
 
 $(NAME):	make_lib $(OBJ_SRC) $(OBJ_LIST) $(OBJ_MAIN)
-			$(CC) $(OBJ_SRC) $(OBJ_LIST) $(OBJ_MAIN) $(CFLAGS) -o $(NAME)
+			$(CC) $(OBJ_SRC) $(OBJ_LIST) $(OBJ_MAIN) $(CFLAGS) -o $(NAME) \
 			$(LFLAGS)
 			@printf "\033[33m[Message]\033[39m %s\n" $(NAME)
 
