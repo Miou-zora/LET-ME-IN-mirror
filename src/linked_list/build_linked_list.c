@@ -9,6 +9,8 @@
 
 void add_node(struct list *pile, int nb)
 {
+    (void)pile;
+    (void)nb;
     // list_t *temp = pile;
     // list_t *new_node = malloc(sizeof(list_t));
     // new_node->next = NULL;
@@ -24,7 +26,9 @@ void add_node(struct list *pile, int nb)
 
 list_t *build_link(int ac, char **av)
 {
-    // list_t *pile = malloc(sizeof(list_t));
+    (void)ac;
+    (void)av;
+    list_t *pile = malloc(sizeof(list_t));
     // pile->next = NULL;
     // pile->prev = NULL;
     // int temp = 0;
@@ -32,5 +36,5 @@ list_t *build_link(int ac, char **av)
     // for (int i = 2; i < ac; i++) {
     //     add_node(pile, temp);
     // }
-    // return (pile);
+    return (pile);
 }

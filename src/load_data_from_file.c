@@ -9,5 +9,5 @@
 
 void load_data_from_file(data_t *data)
 {
-    
+    (void)data;
 }

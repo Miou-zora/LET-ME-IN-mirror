@@ -10,9 +10,10 @@
 
 int get_len_array(char **array)
 {
+    (void)array;
     // int i = 0;
     // while (array[i] != NULL) {
     //     i++;
     // }
-    // return (i);
+    return (0);
 }

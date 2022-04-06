@@ -11,6 +11,7 @@ int lem_in(int ac, char **av)
 {
     data_t *data_s = malloc(sizeof(data_t));
 
+    (void)av;
     if (ac != 1)
         return (84);
     load_data_from_file(data_s);

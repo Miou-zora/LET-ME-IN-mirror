@@ -10,6 +10,7 @@
 
 void display_pile(list_t *pile)
 {
+    (void)pile;
     // list_t *temp = pile;
 
     // while (temp != NULL) {

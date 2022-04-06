@@ -9,6 +9,7 @@
 
 void free_struct(list_t *list)
 {
+    (void)list;
     // while (list->next != NULL) {
     //     list = list->next;
     //     free(list->prev);

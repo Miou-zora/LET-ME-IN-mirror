@@ -30,7 +30,7 @@ CC			=	gcc
 
 TEST_BINARY	=	unit_tests
 
-CFLAGS		=	-Wall -Wextra -Wshadow -I./include
+CFLAGS		=	-Wall -Wextra -Wshadow -Werror -I./include
 
 TESTS_FLAGS	=	--coverage -lcriterion -I./include
 

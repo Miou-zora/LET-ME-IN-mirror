@@ -10,6 +10,8 @@
 
 int is_char_is_that(char c, char const *array)
 {
+    (void)c;
+    (void)array;
     // int len_array = my_strlen(array);
 
     // for (int i = 0; i < len_array; i++) {
@@ -17,22 +19,27 @@ int is_char_is_that(char c, char const *array)
     //         return (1);
     //     }
     // }
-    // return (0);
+    return (0);
 }
 
 int number_of_word_start(char const *str, char *sep)
 {
-    // int len = 0;
+    (void)str;
+    (void)sep;
+    int len = 0;
 
     // for (int i = 0; str[i]; i++) {
     //     if (is_char_is_that(str[i], sep))
     //         len++;
     // }
-    // return (len);
+    return (len);
 }
 
 char **data_to_array_str(char *new, char *sep)
 {
+    (void)new;
+    (void)sep;
+    char **array = NULL;
     // int len_all = my_strlen(new);
     // int tmp = number_of_word_start(new, sep) + 2;
     // char **array = my_calloc(tmp, sizeof(*array));
@@ -51,5 +58,5 @@ char **data_to_array_str(char *new, char *sep)
     //     }
     // }
     // array[nbr_ptr] = NULL;
-    // return (array);
+    return (array);
 }
