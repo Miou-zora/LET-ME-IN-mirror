@@ -14,7 +14,8 @@ int lem_in(int ac, char **av)
     (void)av;
     if (ac != 1)
         return (84);
-    load_data_from_file(data_s);
+    if (load_data_from_file(data_s) == 84)
+        return (84);
     free(data_s);
     return (0);
 }

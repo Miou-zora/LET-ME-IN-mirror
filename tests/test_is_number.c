@@ -61,3 +61,10 @@ Test(is_nbr, start_number_and_char)
 
     cr_assert_eq(is_str_nbr(str), 84);
 }
+
+Test(is_nbr, nbr_with_space)
+{
+    char *str = "1 23 3";
+
+    cr_assert_eq(is_str_nbr(str), 84);
+}
