@@ -9,5 +9,11 @@
 
 int lem_in(int ac, char **av)
 {
+    data_t *data_s = malloc(sizeof(data_t));
+
+    if (ac != 1)
+        return (84);
+    load_data_from_file(data_s);
+    free(data_s);
     return (0);
 }

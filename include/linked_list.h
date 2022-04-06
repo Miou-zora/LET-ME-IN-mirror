@@ -11,8 +11,7 @@
     #include "my.h"
     #include <stdlib.h>
 
-    typedef struct list_s
-    {
+    typedef struct list_s {
         int nb;
         struct list **prev;
         struct list **next;

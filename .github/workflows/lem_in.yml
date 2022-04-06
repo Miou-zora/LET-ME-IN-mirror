@@ -1,0 +1,82 @@
+name : mirror
+
+on:
+  push:
+    branches-ignore:
+      - 'ga-ignore-*'
+  pull_request:
+    branches-ignore:
+      - 'ga-ignore-*'
+
+env:
+  EXECUTABLES: "lem_in"
+
+jobs:
+  check_repository_cleanliness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: clean repository
+        run: |
+          is_fake=0
+          for error in $(find -type f,d -path "*/tmp/*" -o -name "*.o" -o -name "*.a" -o -name "*.so" -o -name "*.gc*" -o -name "*~" -o -name "#*#" -o -iname "*pain_au_chocolat*");
+            do
+              echo "::error file=$error,title=Unwanted file detected::$error"
+              is_fake=1
+            done
+          if [ "$is_fake" -eq 1 ]; then
+              exit 1;
+          fi
+  check_program_compilation:
+    needs: check_repository_cleanliness
+    runs-on: ubuntu-latest
+    container: epitechcontent/epitest-docker
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: build application
+        run: make
+        continue-on-error: false
+      - name: clean application
+        run: make clean
+        timeout-minutes: 2
+        continue-on-error: false
+      - name: check executable
+        run: |
+          str=$EXECUTABLES
+          IFS=,
+          for i in $str
+          do
+            if ! [[ -x "$i" ]]; then
+              exit 1
+            fi
+          done
+        continue-on-error: false
+  run_tests:
+    needs: check_program_compilation
+    runs-on: ubuntu-latest
+    container: epitechcontent/epitest-docker
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: run tests
+        run: make tests_run
+        timeout-minutes: 2
+        continue-on-error: false
+  push_to_mirror:
+    needs: run_tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+    - uses: pixta-dev/repository-mirroring-action@v1
+      with:
+        target_repo_url:
+          ${{ secrets.THE_REPO }}
+        ssh_private_key:
+          ${{ secrets.THE_KEY }}

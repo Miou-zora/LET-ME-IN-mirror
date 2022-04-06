@@ -11,7 +11,17 @@
 
 /******************************structurs***************************************/
 
+    typedef struct data {
+        int nb_ants;
+        char **room_name;
+        char **path;
+    } data_t;
+
 /******************************fonctions***************************************/
+
+void load_data_from_file(data_t *data);
+int lem_in(int ac, char **av);
+
 
 /******************************enum********************************************/
 
