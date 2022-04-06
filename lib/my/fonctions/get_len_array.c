@@ -15,5 +15,5 @@ int get_len_array(char **array)
     while (array[i] != NULL) {
         i++;
     }
-    return (0);
+    return (i);
 }

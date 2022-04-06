@@ -12,11 +12,17 @@ void init_error_comter(error_comter_t *error_comter_s)
     error_comter_s->is_next_start = 0;
     error_comter_s->is_next_end = 0;
     error_comter_s->ants = 0;
+    error_comter_s->start = 0;
+    error_comter_s->end = 0;
 }
 
 int check_error_file(error_comter_t *error_comter_s)
 {
     if (error_comter_s->ants > 1)
+        return (84);
+    if (error_comter_s->start > 1)
+        return (84);
+    if (error_comter_s->end > 1)
         return (84);
     return (0);
 }
@@ -35,6 +41,20 @@ error_comter_t *error_comter_s)
         error_comter_s->ants += 1;
         data_s->nb_ants = my_getnbr(buff);
     }
+    if (get_len_array(save_data) == 3 && error_comter_s->is_next_start == 1) {
+        error_comter_s->is_next_start = 0;
+        error_comter_s->start += 1;
+        data_s->start = my_strdup(buff);
+    }
+    if (get_len_array(save_data) == 3 && error_comter_s->is_next_end == 1) {
+        error_comter_s->is_next_end = 0;
+        error_comter_s->end += 1;
+        data_s->end = my_strdup(buff);
+    }
+    if (my_strcmp(buff, "##start\n") == 0)
+        error_comter_s->is_next_start = 1;
+    if (my_strcmp(buff, "##end\n") == 0)
+        error_comter_s->is_next_end = 1;
     free(tmp);
     free(save_data);
     return (0);

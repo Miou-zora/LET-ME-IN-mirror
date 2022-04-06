@@ -18,6 +18,8 @@
 
     typedef struct data {
         int nb_ants;
+        char *start;
+        char *end;
         char **room_name;
         char **path;
     } data_t;
