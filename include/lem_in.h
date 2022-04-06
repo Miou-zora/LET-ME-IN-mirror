@@ -30,8 +30,6 @@
         int ants;
         int start;
         int end;
-        int rooms;
-        int path;
     } error_comter_t;
 
 /******************************fonctions***************************************/
@@ -45,6 +43,8 @@ int load_data_from_file(data_t *data);
 //!error handling
 int check_error_file(error_comter_t *error_comter_s);
 int check_error_file_end(error_comter_t *error_comter_s);
+int analyse_get_value(char *buff, data_t *data_s,
+error_comter_t *error_comter_s);
 
 //!useful fonctions
 

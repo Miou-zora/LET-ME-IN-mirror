@@ -10,6 +10,7 @@ SRC 		= 	src/lem_in.c 							\
 				src/is_number.c 						\
 				src/remove_comments.c 					\
 				src/check_error_file.c 					\
+				src/get_value.c 						\
 
 LISTSRC		=	src/linked_list/build_linked_list.c 	\
 				src/linked_list/display_linked_list.c 	\
