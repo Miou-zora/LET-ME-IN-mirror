@@ -8,6 +8,7 @@
 SRC 		= 	src/lem_in.c 							\
 				src/load_data_from_file.c 				\
 				src/is_number.c 						\
+				src/remove_comments.c 					\
 
 LISTSRC		=	src/linked_list/build_linked_list.c 	\
 				src/linked_list/display_linked_list.c 	\
@@ -16,6 +17,7 @@ LISTSRC		=	src/linked_list/build_linked_list.c 	\
 MAIN		=	src/main.c
 
 TEST_FONC	=	tests/test_is_number.c 				\
+				tests/test_remove_comments.c 		\
 
 OBJ_SRC		=	$(SRC:.c=.o)
 OBJ_LIST	= 	$(LISTSRC:.c=.o)

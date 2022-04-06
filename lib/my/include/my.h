@@ -51,7 +51,7 @@
     int get_nbrlen(int);
     int my_printf(char const *str, ...);
     char **data_to_array_str(char *ne, char *sep);
-    int get_array_len(char **arr);
+    int get_len_array(char **arr);
     void print_array_str(char **arr);
 
 #endif/* !MY_H_ */

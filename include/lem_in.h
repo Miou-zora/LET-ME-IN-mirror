@@ -7,7 +7,12 @@
 
 #ifndef LEM_IN_H_
     #define LEM_IN_H_
+
+/******************************includes****************************************/
+
+    #include "my.h"
     #include "linked_list.h"
+    #include <stdio.h>
 
 /******************************structurs***************************************/
 
@@ -17,11 +22,28 @@
         char **path;
     } data_t;
 
+    typedef struct error_comter {
+        int is_next_start;
+        int is_next_end;
+        int ants;
+        int start;
+        int end;
+        int rooms;
+        int path;
+    } error_comter_t;
+
 /******************************fonctions***************************************/
 
-void load_data_from_file(data_t *data);
-int lem_in(int ac, char **av);
 
+//!project fonction
+
+int lem_in(int ac, char **av);
+int load_data_from_file(data_t *data);
+
+//!useful fonctions
+
+int is_str_nbr(char *str);
+char *remove_comments(char *buff);
 
 /******************************enum********************************************/
 
