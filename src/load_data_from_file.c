@@ -31,8 +31,10 @@ int load_data_from_file(data_t *data_s)
     int is_error = 0;
 
     init_error_comter(error_comter_s);
-    if (getline(&buff, &buffsize, stdin) == -1)
+    if (getline(&buff, &buffsize, stdin) == -1) {
+        my_putstr_error(EMPTY_FILE);
         return (free_buff_and_return(buff, error_comter_s, 84));
+    }
     do {
         is_error = analyse_get_value(buff, data_s, error_comter_s);
         if (is_error == 84 || check_error_file(error_comter_s) == 84)

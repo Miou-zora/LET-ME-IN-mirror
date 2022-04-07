@@ -31,6 +31,7 @@ int lem_in(int ac, char **av)
 
     (void)av;
     if (ac != 1) {
+        my_putstr_error(TO_MUCH_ARG);
         free_data(data_s);
         return (84);
     }

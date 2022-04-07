@@ -49,6 +49,8 @@ void get_rooms_and_tunnels(char **save_data, char *buff, data_t *data_s)
 
 int free_and_return(char *tmp, char **save_data, int nb)
 {
+    if (nb == 84)
+        my_putstr_error(TO_MUCH_DATA);
     free(tmp);
     free(save_data);
     return (nb);

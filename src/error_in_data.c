@@ -15,19 +15,25 @@ int check_end_start(char *data)
     if (get_len_array(tmp) != 3)
         return (free_and_return(save, tmp, 84));
     for (int i = 0; tmp[0][i] != '\0'; i++) {
-        if (tmp[0][i] == '-')
+        if (tmp[0][i] == '-') {
+            my_putstr_error(DASH_IN_NAME);
             return (free_and_return(save, tmp, 84));
+        }
     }
     for (int i = 1; tmp[i] != NULL; i++)
-        if (is_str_nbr(tmp[i]) == 84)
+        if (is_str_nbr(tmp[i]) == 84) {
+            my_putstr_error(NO_NUMBER);
             return (free_and_return(save, tmp, 84));
+        }
     return (free_and_return(save, tmp, 0));
 }
 
 int error_data(data_t *data_s)
 {
-    if (data_s->nb_ants < 1)
+    if (data_s->nb_ants < 1) {
+        my_putstr_error(NEGATIVE_ANTS);
         return (84);
+    }
     if (check_end_start(data_s->start) == 84 ||
     check_end_start(data_s->end) == 84)
         return (84);

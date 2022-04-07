@@ -70,4 +70,21 @@ int free_and_return(char *tmp, char **save_data, int nb);
 
 /******************************define******************************************/
 
+    #define NO_ANTS "No ants found in the file :\nexit code 84\n"
+    #define NO_START "No start found in the file :\nexit code 84\n"
+    #define NO_END "No end found in the file :\nexit code 84\n"
+    #define TO_MUCH_ANTS "To much ants found in the file :\n\
+    exit code 84\n"
+    #define TO_MUCH_START "To much start found in the file :\n\
+    exit code 84\n"
+    #define TO_MUCH_END "To much end found in the file :\nexit code 84\n"
+    #define DASH_IN_NAME "dash found in room name:\nexit code 84\n"
+    #define NO_NUMBER "caracter different than number found in room positions :\
+    \nexit code 84\n"
+    #define NEGATIVE_ANTS "negative ants number found :\nexit code 84\n"
+    #define TO_MUCH_DATA "To much data found on a line :\nexit code 84\n"
+    #define TO_MUCH_ARG "To much arguments found no argument need :\n\
+    exit code 84\n"
+    #define EMPTY_FILE "Empty file detected :\nexit code 84\n"
+
 #endif /* !LEM_IN_H_ */
