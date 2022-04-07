@@ -53,6 +53,8 @@ SRC		=	fonctions/my_compute_power_rec.c		\
 			fonctions/data_to_array_str.c			\
 			fonctions/get_len_array.c				\
 			fonctions/print_array_str.c				\
+			fonctions/my_arraydup.c					\
+			fonctions/my_arraycpy.c					\
 
 INCLUDE	=	my.h
 

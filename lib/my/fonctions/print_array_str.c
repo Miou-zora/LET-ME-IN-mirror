@@ -12,6 +12,5 @@ void print_array_str(char **str)
 {
     for (int i = 0; str[i] != NULL; i++) {
         my_putstr(str[i]);
-        my_putchar('\n');
     }
 }
