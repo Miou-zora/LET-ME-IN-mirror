@@ -81,7 +81,7 @@ int free_and_return(char *tmp, char **save_data, int nb);
     #define DASH_IN_NAME "dash found in room name:\nexit code 84\n"
     #define NO_NUMBER "caracter different than number found in room positions :\
     \nexit code 84\n"
-    #define NEGATIVE_ANTS "negative ants number found :\nexit code 84\n"
+    #define NEGATIVE_ANTS "No ants number found :\nexit code 84\n"
     #define TO_MUCH_DATA "To much data found on a line :\nexit code 84\n"
     #define TO_MUCH_ARG "To much arguments found no argument need :\n\
     exit code 84\n"

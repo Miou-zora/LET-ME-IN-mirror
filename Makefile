@@ -5,16 +5,16 @@
 ## Makefile
 ##
 
-SRC 		= 	src/lem_in.c 							\
-				src/load_data_from_file.c 				\
-				src/is_number.c 						\
-				src/remove_comments.c 					\
-				src/check_error_file.c 					\
-				src/get_value.c 						\
-				src/save_data_and_rooms.c				\
-				src/free_array.c 						\
-				src/error_in_data.c 					\
-				src/my_putstr_error.c 					\
+SRC 		= 	src/lem_in.c 									\
+				src/load_data/load_data_from_file.c 			\
+				src/useful_fonctions/is_number.c 				\
+				src/useful_fonctions/remove_comments.c 			\
+				src/load_data/check_error_file.c 				\
+				src/load_data/get_value.c 						\
+				src/load_data/save_data_and_rooms.c				\
+				src/useful_fonctions/free_array.c 				\
+				src/load_data/error_in_data.c 					\
+				src/useful_fonctions/my_putstr_error.c 			\
 
 LISTSRC		=	src/linked_list/build_linked_list.c 	\
 				src/linked_list/display_linked_list.c 	\
