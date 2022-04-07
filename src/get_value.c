@@ -41,13 +41,10 @@ data_t *data_s)
 
 void get_rooms_and_tunnels(char **save_data, char *buff, data_t *data_s)
 {
-    (void)save_data;
-    (void)buff;
-    (void)data_s;
-    // if (get_len_array(save_data) == 3)
-    //     save_room(data_s, buff);
-    // if (get_len_array(save_data) == 1)
-    //     save_tunnel(data_s, buff);
+    if (get_len_array(save_data) == 3)
+        save_room(data_s, buff);
+    if (get_len_array(save_data) == 1)
+        save_tunnel(data_s, buff);
 }
 
 int analyse_get_value(char *buff, data_t *data_s,

@@ -11,6 +11,7 @@ void init_data(data_t *data_s)
 {
     data_s->end = NULL;
     data_s->start = NULL;
+    data_s->room_name = NULL;
 }
 
 void free_data(data_t *data_s)

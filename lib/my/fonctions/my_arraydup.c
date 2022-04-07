@@ -12,10 +12,12 @@ int get_len_array(char **array);
 
 char **my_arraycpy(char **dest , char **src);
 
+void *my_calloc(int elem_count, int elem_size);
+
 char **my_arraydup(char **src)
 {
-    char **dest = malloc(sizeof(char) * (get_len_array(src) + 1));
+    char **dest = my_calloc((get_len_array(src) + 1), sizeof(char *));
 
-    my_arraycpy(dest, src);
+    dest = my_arraycpy(dest, src);
     return (dest);
 }

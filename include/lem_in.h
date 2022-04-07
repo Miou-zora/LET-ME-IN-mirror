@@ -48,12 +48,12 @@ data_t *data_s);
 void get_rooms_and_tunnels(char **save_data, char *buff, data_t *data_s);
 int analyse_get_value(char *buff, data_t *data_s,
 error_comter_t *error_comter_s);
+void save_tunnel(data_t *data_s, char *buff);
+void save_room(data_t *data_s, char *buff);
 
 //!error handling
 int check_error_file(error_comter_t *error_comter_s);
 int check_error_file_end(error_comter_t *error_comter_s);
-int analyse_get_value(char *buff, data_t *data_s,
-error_comter_t *error_comter_s);
 
 //!useful fonctions
 
