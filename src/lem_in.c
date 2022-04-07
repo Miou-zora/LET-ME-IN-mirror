@@ -12,12 +12,16 @@ void init_data(data_t *data_s)
     data_s->end = NULL;
     data_s->start = NULL;
     data_s->room_name = NULL;
+    data_s->path = NULL;
+    data_s->nb_ants = 0;
 }
 
 void free_data(data_t *data_s)
 {
     free(data_s->end);
     free(data_s->start);
+    free_array(data_s->path);
+    free_array(data_s->room_name);
     free(data_s);
 }
 

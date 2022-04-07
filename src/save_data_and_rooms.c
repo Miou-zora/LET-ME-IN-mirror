@@ -7,14 +7,6 @@
 
 #include "lem_in.h"
 
-void free_array(char **arr)
-{
-    if (arr != NULL)
-        for (int j = 0; arr[j] != NULL; j++)
-            free(arr[j]);
-    free(arr);
-}
-
 void save_room(data_t *data_s, char *buff)
 {
     char **save = NULL;

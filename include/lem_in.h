@@ -59,6 +59,7 @@ int check_error_file_end(error_comter_t *error_comter_s);
 
 int is_str_nbr(char *str);
 char *remove_comments(char *buff);
+void free_array(char **arr);
 
 /******************************enum********************************************/
 
