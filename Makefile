@@ -21,6 +21,10 @@ MAIN		=	src/main.c
 TEST_FONC	=	tests/test_is_number.c 				\
 				tests/test_remove_comments.c 		\
 				tests/test_check_error_file.c       \
+				tests/test_comter_error_init.c		\
+				tests/test_get_value_start.c		\
+				tests/test_get_value_end.c			\
+				tests/test_analyse_get_value.c		\
 
 OBJ_SRC		=	$(SRC:.c=.o)
 OBJ_LIST	= 	$(LISTSRC:.c=.o)

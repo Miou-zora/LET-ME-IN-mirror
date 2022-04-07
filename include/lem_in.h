@@ -40,6 +40,15 @@
 int lem_in(int ac, char **av);
 int load_data_from_file(data_t *data);
 
+//?get value
+int get_start(char **save_data, char *buff, error_comter_t *error_comter_s,
+data_t *data_s);
+int get_end(char **save_data, char *buff, error_comter_t *error_comter_s,
+data_t *data_s);
+void get_rooms_and_tunnels(char **save_data, char *buff, data_t *data_s);
+int analyse_get_value(char *buff, data_t *data_s,
+error_comter_t *error_comter_s);
+
 //!error handling
 int check_error_file(error_comter_t *error_comter_s);
 int check_error_file_end(error_comter_t *error_comter_s);
