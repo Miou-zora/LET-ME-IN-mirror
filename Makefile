@@ -13,6 +13,8 @@ SRC 		= 	src/lem_in.c 							\
 				src/get_value.c 						\
 				src/save_data_and_rooms.c				\
 				src/free_array.c 						\
+				src/error_in_data.c 					\
+				src/my_putstr_error.c 					\
 
 LISTSRC		=	src/linked_list/build_linked_list.c 	\
 				src/linked_list/display_linked_list.c 	\

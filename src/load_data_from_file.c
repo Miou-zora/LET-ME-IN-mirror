@@ -31,7 +31,7 @@ int load_data_from_file(data_t *data_s)
         if (is_error == 84 || check_error_file(error_comter_s) == 84)
             return (84);
     } while (getline(&buff, &buffsize, stdin) != -1);
-    if (check_error_file_end(error_comter_s) == 84)
+    if (check_error_file_end(error_comter_s) == 84 || error_data(data_s) == 84)
         return (84);
     // check room connection with tunnel and errors in rooms and tunnels
     free(buff);
