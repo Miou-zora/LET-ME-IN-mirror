@@ -15,6 +15,7 @@ SRC 		= 	src/lem_in.c 									\
 				src/useful_fonctions/free_array.c 				\
 				src/load_data/error_in_data.c 					\
 				src/useful_fonctions/my_putstr_error.c 			\
+				src/load_data/check_name_path.c 			\
 
 LISTSRC		=	src/linked_list/build_linked_list.c 	\
 				src/linked_list/display_linked_list.c 	\

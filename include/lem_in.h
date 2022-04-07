@@ -55,6 +55,7 @@ void save_room(data_t *data_s, char *buff);
 int check_error_file(error_comter_t *error_comter_s);
 int check_error_file_end(error_comter_t *error_comter_s);
 int error_data(data_t *data_s);
+int check_path_name(data_t *data_s, char *path);
 
 //!useful fonctions
 
@@ -74,17 +75,19 @@ int free_and_return(char *tmp, char **save_data, int nb);
     #define NO_START "No start found in the file :\nexit code 84\n"
     #define NO_END "No end found in the file :\nexit code 84\n"
     #define TO_MUCH_ANTS "To much ants found in the file :\n\
-    exit code 84\n"
+exit code 84\n"
     #define TO_MUCH_START "To much start found in the file :\n\
-    exit code 84\n"
+exit code 84\n"
     #define TO_MUCH_END "To much end found in the file :\nexit code 84\n"
-    #define DASH_IN_NAME "dash found in room name:\nexit code 84\n"
+    #define DASH_IN_NAME "Dash found in room name:\nexit code 84\n"
     #define NO_NUMBER "caracter different than number found in room positions :\
-    \nexit code 84\n"
+\nexit code 84\n"
     #define NEGATIVE_ANTS "No ants number found :\nexit code 84\n"
     #define TO_MUCH_DATA "To much data found on a line :\nexit code 84\n"
     #define TO_MUCH_ARG "To much arguments found no argument need :\n\
-    exit code 84\n"
+exit code 84\n"
     #define EMPTY_FILE "Empty file detected :\nexit code 84\n"
+    #define NEW_NAME "New name detected in path :\nexit code 84\n"
+    #define SAME_NAME "Same name detected many time :\nexit code 84\n"
 
 #endif /* !LEM_IN_H_ */

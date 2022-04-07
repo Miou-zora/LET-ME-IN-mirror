@@ -10,7 +10,7 @@
 int check_end_start(char *data)
 {
     char *save = my_strdup(data);
-    char **tmp = data_to_array_str(data, " ");
+    char **tmp = data_to_array_str(save, " ");
 
     if (get_len_array(tmp) != 3)
         return (free_and_return(save, tmp, 84));
@@ -25,7 +25,37 @@ int check_end_start(char *data)
             my_putstr_error(NO_NUMBER);
             return (free_and_return(save, tmp, 84));
         }
+    data[my_strlen(tmp[0])] = '\0';
     return (free_and_return(save, tmp, 0));
+}
+
+int compare_name(char **tmp, int i)
+{
+    for (int j = i + 1; tmp[j] != NULL; j++) {
+        if (my_strcmp(tmp[i], tmp[j]) == 0) {
+            my_putstr_error(SAME_NAME);
+            return (84);
+        }
+    }
+    return (0);
+}
+
+int check_name(data_t *data_s)
+{
+    char **tmp = my_calloc(sizeof(char *),
+    (get_len_array(data_s->room_name) + 2));
+
+    tmp[0] = my_strdup(data_s->start);
+    for (int i = 1; i != get_len_array(data_s->room_name) + 1; i++) {
+        tmp[i] = my_strdup(data_s->room_name[i - 1]);
+    }
+    tmp[get_len_array(data_s->room_name) + 1] = my_strdup(data_s->end);
+    for (int i = 0; tmp[i] != NULL; i++) {
+        if (compare_name(tmp, i) == 84)
+            return (84);
+    }
+    free_array(tmp);
+    return (0);
 }
 
 int error_data(data_t *data_s)
@@ -39,6 +69,12 @@ int error_data(data_t *data_s)
         return (84);
     for (int i = 0; data_s->room_name[i] != NULL; i++) {
         if (check_end_start(data_s->room_name[i]) == 84)
+            return (84);
+    }
+    if (check_name(data_s) == 84)
+        return (84);
+    for (int i = 0; data_s->path[i] != NULL; i++) {
+        if (check_path_name(data_s, data_s->path[i]) == 84)
             return (84);
     }
     return (0);
