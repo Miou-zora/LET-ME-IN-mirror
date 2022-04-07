@@ -60,9 +60,10 @@ int analyse_get_value(char *buff, data_t *data_s,
 error_comter_t *error_comter_s)
 {
     char **save_data = NULL;
-    char *tmp = my_strdup(buff);
+    char *tmp = NULL;
 
-    buff = remove_comments(buff);
+    buff = remove_space(remove_comments(buff));
+    tmp = my_strdup(buff);
     if (buff[0] == '\0')
         return (free_and_return(tmp, save_data, 0));
     save_data = data_to_array_str(tmp, " ");
