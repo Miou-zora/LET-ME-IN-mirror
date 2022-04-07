@@ -62,6 +62,7 @@ int is_str_nbr(char *str);
 char *remove_comments(char *buff);
 void free_array(char **arr);
 void my_putstr_error(char *error);
+int free_and_return(char *tmp, char **save_data, int nb);
 
 /******************************enum********************************************/
 

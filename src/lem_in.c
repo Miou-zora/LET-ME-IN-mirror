@@ -30,11 +30,15 @@ int lem_in(int ac, char **av)
     data_t *data_s = malloc(sizeof(data_t));
 
     (void)av;
-    if (ac != 1)
+    if (ac != 1) {
+        free_data(data_s);
         return (84);
+    }
     init_data(data_s);
-    if (load_data_from_file(data_s) == 84)
+    if (load_data_from_file(data_s) == 84) {
+        free_data(data_s);
         return (84);
+    }
     free_data(data_s);
     return (0);
 }

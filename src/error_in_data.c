@@ -13,17 +13,15 @@ int check_end_start(char *data)
     char **tmp = data_to_array_str(data, " ");
 
     if (get_len_array(tmp) != 3)
-        return (84);
+        return (free_and_return(save, tmp, 84));
     for (int i = 0; tmp[0][i] != '\0'; i++) {
         if (tmp[0][i] == '-')
-            return (84);
+            return (free_and_return(save, tmp, 84));
     }
     for (int i = 1; tmp[i] != NULL; i++)
         if (is_str_nbr(tmp[i]) == 84)
-            return (84);
-    free(tmp);
-    free(save);
-    return (0);
+            return (free_and_return(save, tmp, 84));
+    return (free_and_return(save, tmp, 0));
 }
 
 int error_data(data_t *data_s)
