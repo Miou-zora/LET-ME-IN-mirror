@@ -43,7 +43,7 @@ int compare_name(char **tmp, int i)
 int check_name(data_t *data_s)
 {
     char **tmp = my_calloc(sizeof(char *),
-    (get_len_array(data_s->room_name) + 2));
+    (get_len_array(data_s->room_name) + 3));
 
     tmp[0] = my_strdup(data_s->start);
     for (int i = 1; i != get_len_array(data_s->room_name) + 1; i++) {
