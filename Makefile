@@ -84,7 +84,7 @@ clean:
 			@$(MK) -C lib/my/ clean
 
 tests_run:		tclean $(NAME)
-		$(CC) $(SRC) $(TEST_FONC) $(TESTS_FLAGS) $(LFLAGS) -o $(TEST_BINARY)
+		$(CC) $(OBJ_SRC) $(OBJ_LIST) $(TEST_FONC) $(TESTS_FLAGS) $(LFLAGS) -o $(TEST_BINARY)
 			./$(TEST_BINARY)
 			@$(MV) *.gc* tests
 			gcovr -e tests
