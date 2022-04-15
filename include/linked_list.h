@@ -13,7 +13,6 @@
 
     typedef struct list_s {
         char *name;
-        struct list **prev;
         struct list **next;
     } list_t;
 

@@ -31,12 +31,10 @@ int build_tab_pointers(list_t **tab_node, data_t *data)
     for (int i = 0; tab_node[i] != NULL; i++) {
         nb_connexion = get_nb_connexion_node(tab_node[i]->name, data->path);
         tab_node[i]->next = malloc(sizeof(list_t *) * (nb_connexion + 1));
-        tab_node[i]->prev = malloc(sizeof(list_t *) * (nb_connexion + 1));
-        if (tab_node[i]->prev == NULL || tab_node[i]->next == NULL) {
+        if (tab_node[i]->next == NULL) {
             return (-1);
         }
         tab_node[nb_connexion + 1]->next = NULL;
-        tab_node[nb_connexion + 1]->prev = NULL;
     }
     return (0);
 }
