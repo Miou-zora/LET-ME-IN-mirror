@@ -12,7 +12,7 @@
     #include <stdlib.h>
 
     typedef struct list_s {
-        int nb;
+        char *name;
         struct list **prev;
         struct list **next;
     } list_t;

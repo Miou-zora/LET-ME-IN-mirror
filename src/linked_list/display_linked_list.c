@@ -10,13 +10,15 @@
 
 void display_pile(list_t *pile)
 {
-    (void)pile;
-    // list_t *temp = pile;
+    my_putstr(pile->name);
+    my_putchar('\n');
+}
 
-    // while (temp != NULL) {
-    //     my_put_nbr(temp->nb);
-    //     temp = temp->next;
-    //     my_putstr(" ");
-    // }
-    // my_putchar('\n');
+void display_tab_node(list_t **tab_node)
+{
+    if (tab_node == NULL)
+        return;
+    for (int i = 0; tab_node[i] != NULL; i++) {
+        display_pile(tab_node[i]);
+    }
 }

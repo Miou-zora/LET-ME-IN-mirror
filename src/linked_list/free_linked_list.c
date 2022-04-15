@@ -7,12 +7,10 @@
 
 #include "linked_list.h"
 
-void free_struct(list_t *list)
+void free_tab_node(list_t **tab_node)
 {
-    (void)list;
-    // while (list->next != NULL) {
-    //     list = list->next;
-    //     free(list->prev);
-    // }
-    // free(list);
+    for (int i = 0; tab_node[i] != NULL; i++) {
+        free(tab_node[i]);
+    }
+    free(tab_node);
 }

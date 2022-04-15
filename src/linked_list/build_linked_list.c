@@ -6,35 +6,43 @@
 */
 
 #include "linked_list.h"
+#include "lem_in.h"
 
-void add_node(struct list *pile, int nb)
+int get_nb_connexion_node(char *node_name, char **conexion)
 {
-    (void)pile;
-    (void)nb;
-    // list_t *temp = pile;
-    // list_t *new_node = malloc(sizeof(list_t));
-    // new_node->next = NULL;
-    // new_node->prev = NULL;
-    // new_node->nb = nb;
+    int size = 0;
+    (void) node_name;
 
-    // while (temp->next != NULL) {
-    //     temp = temp->next;
-    // }
-    // new_node->prev = temp;
-    // temp->next = new_node;
+    for (int i = 0; conexion[i] != NULL; i++) {
+        if (my_strstr(node_name, conexion[i]) != 0) {
+            size++;
+        }
+    }
+    return (size);
+}
+//int build_connexions(list_t **tab_node, char **info)
+//{
+//
+//}
+int build_tab_pointers(list_t **tab_node, data_t *data)
+{
+    int nb_connexion = 0;
+
+    for (int i = 0; tab_node[i] != NULL; i++) {
+        nb_connexion = get_nb_connexion_node(tab_node[i]->name, data->path);
+        tab_node[i]->next = malloc(sizeof(list_t *) * (nb_connexion + 1));
+        tab_node[i]->prev = malloc(sizeof(list_t *) * (nb_connexion + 1));
+        if (tab_node[i]->prev == NULL || tab_node[i]->next == NULL) {
+            return (-1);
+        }
+        tab_node[nb_connexion + 1]->next = NULL;
+        tab_node[nb_connexion + 1]->prev = NULL;
+    }
+    return (0);
 }
 
-list_t *build_link(int ac, char **av)
+list_t **build_link(data_t *data)
 {
-    (void)ac;
-    (void)av;
-    list_t *pile = malloc(sizeof(list_t));
-    // pile->next = NULL;
-    // pile->prev = NULL;
-    // int temp = 0;
-
-    // for (int i = 2; i < ac; i++) {
-    //     add_node(pile, temp);
-    // }
-    return (pile);
+    list_t **tab_node = build_tab_node(data, data->room_name);
+    return (tab_node);
 }

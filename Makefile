@@ -21,6 +21,7 @@ SRC 		= 	src/lem_in.c 									\
 LISTSRC		=	src/linked_list/build_linked_list.c 	\
 				src/linked_list/display_linked_list.c 	\
 				src/linked_list/free_linked_list.c 		\
+				src/linked_list/build_tab_node.c		\
 
 MAIN		=	src/main.c
 

@@ -66,6 +66,13 @@ void my_putstr_error(char *error);
 int free_and_return(char *tmp, char **save_data, int nb);
 char *remove_space(char *buff);
 
+//!linked_list functions
+
+void display_tab_node(list_t **tab_node);
+void free_tab_node(list_t **tab_node);
+list_t **build_link(data_t *data);
+list_t **build_tab_node(data_t *data, char **info);
+
 /******************************enum********************************************/
 
 /******************************global var**************************************/

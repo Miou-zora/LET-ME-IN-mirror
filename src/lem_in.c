@@ -28,7 +28,7 @@ void free_data(data_t *data_s)
 int lem_in(int ac, char **av)
 {
     data_t *data_s = malloc(sizeof(data_t));
-
+    list_t **tab_node;
     (void)av;
     if (ac != 1) {
         my_putstr_error(TO_MUCH_ARG);
@@ -40,6 +40,9 @@ int lem_in(int ac, char **av)
         free_data(data_s);
         return (84);
     }
+    tab_node = build_link(data_s);
+    (void) tab_node;
+    free_tab_node(tab_node);
     free_data(data_s);
     return (0);
 }
