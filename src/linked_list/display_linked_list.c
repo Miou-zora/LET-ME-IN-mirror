@@ -11,6 +11,11 @@
 void display_pile(list_t *pile)
 {
     my_putstr(pile->name);
+    my_putstr(" est relié à :");
+    for (int i = 0; pile->next[i] != NULL; i++) {
+        my_putstr(pile->next[i]->name);
+        my_putstr(" ");
+    }
     my_putchar('\n');
 }
 

@@ -72,6 +72,7 @@ void display_tab_node(list_t **tab_node);
 void free_tab_node(list_t **tab_node);
 list_t **build_link(data_t *data);
 list_t **build_tab_node(data_t *data, char **info);
+int link_all_nodes(list_t **tab_node, char **path);
 
 /******************************enum********************************************/
 

@@ -8,6 +8,19 @@
 #include "linked_list.h"
 #include "lem_in.h"
 
+list_t **build_empty_array(int size)
+{
+    list_t **tab = malloc(sizeof(list_t) * (size + 3));
+
+    if (tab == NULL) {
+        return (NULL);
+    }
+    for (int i = 0; i <= size + 3; i++) {
+        tab[i] = NULL;
+    }
+    return (tab);
+}
+
 int get_nb_connexion_node(char *node_name, char **conexion)
 {
     int size = 0;
@@ -21,27 +34,16 @@ int get_nb_connexion_node(char *node_name, char **conexion)
     return (size);
 }
 
-list_t *get_address_by_name(list_t **tab_node, char *name)
-{
-    for (int i = 0; tab_node[i] != NULL; i++) {
-        if (my_strcmp(tab_node[i]->name, name) == 0) {
-            return (tab_node[i]);
-        }
-    }
-    return (NULL);
-}
-
 int build_tab_pointers(list_t **tab_node, data_t *data)
 {
     int nb_connexion = 0;
 
     for (int i = 0; tab_node[i] != NULL; i++) {
         nb_connexion = get_nb_connexion_node(tab_node[i]->name, data->path);
-        tab_node[i]->next = malloc(sizeof(list_t *) * (nb_connexion + 1));
+        tab_node[i]->next = build_empty_array(nb_connexion);
         if (tab_node[i]->next == NULL) {
             return (-1);
         }
-        tab_node[nb_connexion + 1]->next = NULL;
     }
     return (0);
 }
@@ -49,6 +51,13 @@ int build_tab_pointers(list_t **tab_node, data_t *data)
 list_t **build_link(data_t *data)
 {
     list_t **tab_node = build_tab_node(data, data->room_name);
-    build_tab_pointers(tab_node, data);
+    if (tab_node == NULL) {
+        return (NULL);
+    }
+    if (build_tab_pointers(tab_node, data) == -1) {
+        return (NULL);
+    } else if (link_all_nodes(tab_node, data->path) == -1) {
+        return (NULL);
+    }
     return (tab_node);
 }

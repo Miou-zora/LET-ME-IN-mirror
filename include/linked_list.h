@@ -13,7 +13,7 @@
 
     typedef struct list_s {
         char *name;
-        struct list **next;
+        struct list_s **next;
     } list_t;
 
 #endif /* !LINKED_LIST_H_ */
