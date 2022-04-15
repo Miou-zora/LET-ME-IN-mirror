@@ -20,10 +20,17 @@ int get_nb_connexion_node(char *node_name, char **conexion)
     }
     return (size);
 }
-//int build_connexions(list_t **tab_node, char **info)
-//{
-//
-//}
+
+list_t *get_address_by_name(list_t **tab_node, char *name)
+{
+    for (int i = 0; tab_node[i] != NULL; i++) {
+        if (my_strcmp(tab_node[i]->name, name) == 0) {
+            return (tab_node[i]);
+        }
+    }
+    return (NULL);
+}
+
 int build_tab_pointers(list_t **tab_node, data_t *data)
 {
     int nb_connexion = 0;
@@ -42,5 +49,6 @@ int build_tab_pointers(list_t **tab_node, data_t *data)
 list_t **build_link(data_t *data)
 {
     list_t **tab_node = build_tab_node(data, data->room_name);
+    build_tab_pointers(tab_node, data);
     return (tab_node);
 }
