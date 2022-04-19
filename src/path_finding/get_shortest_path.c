@@ -64,9 +64,9 @@ char **get_shortest_path_rec(list_t *start, int size_matrix, char *end_name)
     return (shortest_path);
 }
 
-char ***get_all_path(list_t *start, char *end_name)
+char ***get_all_path(list_t *start, char *end_name, list_t **all_list)
 {
-    int len_array = len_array_list(start->next) + 1;
+    int len_array = len_array_list(all_list) + 1;
     char ***all_path = my_calloc(len_array + 1, sizeof(*all_path));
     int i = 0;
     char **path = NULL;
