@@ -10,9 +10,11 @@
     #include <unistd.h>
     #include "my.h"
     #include <stdlib.h>
+    #include <stdbool.h>
 
     typedef struct list_s {
         char *name;
+        bool visited;
         struct list_s **next;
     } list_t;
 

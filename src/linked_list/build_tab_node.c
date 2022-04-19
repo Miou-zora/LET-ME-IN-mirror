@@ -49,6 +49,7 @@ int build_each_node(list_t **tab_node, data_t *data, char **info)
             return (-1);
         }
         temp->name = info[i];
+        temp->visited = false;
         tab_node[j] = temp;
     }
     return (0);

@@ -19,6 +19,8 @@ SRC 		= 	src/lem_in.c 									\
 				src/useful_fonctions/remove_space.c 			\
 				src/display/display_info.c 						\
 				src/display/display_path.c 						\
+				src/path_finding/remove_path.c 					\
+				src/path_finding/get_shortest_path.c
 
 LISTSRC		=	src/linked_list/build_linked_list.c 	\
 				src/linked_list/display_linked_list.c 	\
