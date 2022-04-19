@@ -51,7 +51,7 @@ int lem_in(int ac, char **av)
         print_array_str(temp[i]);
         my_printf("\n");
     }
-    display_info(data_s);
+    display_info(data_s, tab_node);
     free_tab_node(tab_node);
     free_data(data_s);
     return (0);

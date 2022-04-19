@@ -7,7 +7,7 @@
 
 #include "lem_in.h"
 
-void display_info(data_t *data)
+void display_info(data_t *data, list_t **tab_node)
 {
     my_printf("#number_of_ants\n%i\n", data->nb_ants);
     my_printf("#rooms\n");
@@ -17,4 +17,5 @@ void display_info(data_t *data)
         my_printf("%s", data->path[i]);
     }
     my_printf("#moves\n");
+    display_path(data, tab_node);
 }

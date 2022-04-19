@@ -7,7 +7,11 @@
 
 #include "lem_in.h"
 
-void display_path(data_t *data)
+void display_path(data_t *data, list_t **tab_node)
 {
-    my_printf("%s", data->end);
+    char ***moves = get_all_path(tab_node[0], data->end);
+    for (int i = 0; moves[i] != NULL; i++) {
+        for (int j = 0; moves[i][j] != NULL; j++)
+            my_printf("%s", moves[i][j]);
+    }
 }
