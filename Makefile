@@ -39,10 +39,6 @@ OBJ_SRC		=	$(SRC:.c=.o)
 OBJ_LIST	= 	$(LISTSRC:.c=.o)
 OBJ_MAIN	=	$(MAIN:.c=.o)
 
-OBJ_TEST	+=	$(OBJ_SRC)
-OBJ_TEST	+=	$(OBJ_LIST)
-OBJ_TEST	+=	$(TEST_FONC:.c=.o)
-
 CC			=	gcc
 
 TEST_BINARY	=	unit_tests
@@ -85,22 +81,20 @@ clean:
 			@$(MK) -C lib/my/ clean
 
 tests_run:		tclean $(NAME)
-		$(CC) $(OBJ_SRC) $(OBJ_LIST) $(TEST_FONC) $(TESTS_FLAGS) $(LFLAGS) -o $(TEST_BINARY)
+		$(CC) $(SRC) $(LISTSRC) $(TEST_FONC) $(TESTS_FLAGS) $(LFLAGS) -o	\
+		$(TEST_BINARY)
 			./$(TEST_BINARY)
 			@$(MV) *.gc* tests
 			gcovr -e tests
 			gcovr -e tests -bu
-			@$(MK) tclean
 
 tclean:
 			@$(RM) tests/*.gc*
 			@$(RM) *.gc*
 			@$(RM) $(TEST_BINARY)
 
-fclean:			clean
-			@$(RM) *.gc*
+fclean:			clean tclean
 			@$(RM) $(NAME)
-			@$(RM) $(TEST_BINARY)
 			@$(RM) $(NAME_DEBUG)
 			@$(RM) ./lib/libmy.a
 			@$(MK) -C lib/my/ fclean
