@@ -22,6 +22,7 @@
         char *end;
         char **room_name;
         char **path;
+        char **every_rooms;
     } data_t;
 
     typedef struct error_comter {
@@ -30,6 +31,7 @@
         int ants;
         int start;
         int end;
+        int count_part;
     } error_comter_t;
 
 /******************************fonctions***************************************/
@@ -45,7 +47,8 @@ int get_start(char **save_data, char *buff, error_comter_t *error_comter_s,
 data_t *data_s);
 int get_end(char **save_data, char *buff, error_comter_t *error_comter_s,
 data_t *data_s);
-void get_rooms_and_tunnels(char **save_data, char *buff, data_t *data_s);
+void get_rooms_and_tunnels(char **save_data, char *buff, data_t *data_s,
+error_comter_t *error_comter_s);
 int analyse_get_value(char *buff, data_t *data_s,
 error_comter_t *error_comter_s);
 void save_tunnel(data_t *data_s, char *buff);
@@ -56,6 +59,7 @@ int check_error_file(error_comter_t *error_comter_s);
 int check_error_file_end(error_comter_t *error_comter_s);
 int error_data(data_t *data_s);
 int check_path_name(data_t *data_s, char *path);
+void save_every_rooms(data_t *data_s, char *buff);
 
 //!useful fonctions
 
@@ -63,7 +67,7 @@ int is_str_nbr(char *str);
 char *remove_comments(char *buff);
 void free_array(char **arr);
 void my_putstr_error(char *error);
-int free_and_return(char *tmp, char **save_data, int nb);
+int free_and_return(char *tmp, char **save_data, int nb, char *message);
 char *remove_space(char *buff);
 
 //!linked_list functions

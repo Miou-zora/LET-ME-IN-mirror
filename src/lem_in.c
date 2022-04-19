@@ -13,6 +13,7 @@ void init_data(data_t *data_s)
     data_s->start = NULL;
     data_s->room_name = NULL;
     data_s->path = NULL;
+    data_s->every_rooms = NULL;
     data_s->nb_ants = 0;
 }
 
@@ -29,6 +30,7 @@ int lem_in(int ac, char **av)
 {
     data_t *data_s = malloc(sizeof(data_t));
     list_t **tab_node;
+
     (void)av;
     if (ac != 1) {
         my_putstr_error(TO_MUCH_ARG);

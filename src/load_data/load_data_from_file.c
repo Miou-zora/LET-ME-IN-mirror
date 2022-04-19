@@ -14,6 +14,7 @@ void init_error_comter(error_comter_t *error_comter_s)
     error_comter_s->ants = 0;
     error_comter_s->start = 0;
     error_comter_s->end = 0;
+    error_comter_s->count_part = 0;
 }
 
 int free_buff_and_return(char *buff, error_comter_t *error_comter_s, int nb)

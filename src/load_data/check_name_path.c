@@ -45,7 +45,7 @@ int check_path_name(data_t *data_s, char *path)
     int is_new_name = 0;
 
     if (get_len_array(tmp) != 2)
-        return (free_and_return(save, tmp, 84));
+        return (free_and_return(save, tmp, 84, NO_NUMBER));
     for (int i = 0; data_s->room_name[i] != NULL; i++)
         if (my_strcmp(tmp[0], data_s->room_name[i]) == 0)
             is_new_name += 1;
@@ -57,5 +57,5 @@ int check_path_name(data_t *data_s, char *path)
         return (84);
     if (check_sec_name(tmp, save, data_s) == 84)
         return (84);
-    return (free_and_return(save, tmp, 0));
+    return (free_and_return(save, tmp, 0, NULL));
 }
