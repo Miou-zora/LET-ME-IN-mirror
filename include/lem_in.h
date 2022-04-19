@@ -78,6 +78,11 @@ list_t **build_link(data_t *data);
 list_t **build_tab_node(data_t *data, char **info);
 int link_all_nodes(list_t **tab_node, char **path);
 
+//!display info
+
+void display_info(data_t *data);
+void display_path(data_t *data);
+
 /******************************enum********************************************/
 
 /******************************global var**************************************/

@@ -17,6 +17,8 @@ SRC 		= 	src/lem_in.c 									\
 				src/useful_fonctions/my_putstr_error.c 			\
 				src/load_data/check_name_path.c 				\
 				src/useful_fonctions/remove_space.c 			\
+				src/display/display_info.c 						\
+				src/display/display_path.c 						\
 
 LISTSRC		=	src/linked_list/build_linked_list.c 	\
 				src/linked_list/display_linked_list.c 	\
