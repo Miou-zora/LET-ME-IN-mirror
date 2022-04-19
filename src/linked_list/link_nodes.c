@@ -29,12 +29,17 @@ void add_new_pointers(list_t *node, list_t *new_pointer)
 
 int link_node_on_str(list_t **tab_node, char *name)
 {
-    char **nodes = data_to_array_str(name, "-");
+    char *name_dup = my_strdup(name);
+    char **nodes;
     list_t *node1;
     list_t *node2;
 
+    if (name_dup == NULL) {
+        return(-1);
+    }
+    nodes = data_to_array_str(name_dup, "-");
     if (nodes == NULL) {
-        free(nodes);
+        free(name_dup);
         return (-1);
     }
     node1 = get_address_by_name(tab_node, nodes[0]);
@@ -42,6 +47,7 @@ int link_node_on_str(list_t **tab_node, char *name)
     add_new_pointers(node1, node2);
     add_new_pointers(node2, node1);
     free(nodes);
+    free(name_dup);
     return (0);
 }
 
