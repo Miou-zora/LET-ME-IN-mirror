@@ -88,7 +88,6 @@ tests_run:		tclean $(NAME)
 		$(CC) $(SRC) $(LISTSRC) $(TEST_FONC) $(TESTS_FLAGS) $(LFLAGS) -o	\
 		$(TEST_BINARY)
 			./$(TEST_BINARY)
-			@$(MV) *.gc* tests
 			gcovr -e tests
 			gcovr -e tests -bu
 			./lem_in < tests/maps/normal_map
