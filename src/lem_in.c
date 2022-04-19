@@ -23,6 +23,7 @@ void free_data(data_t *data_s)
     free(data_s->start);
     free_array(data_s->path);
     free_array(data_s->room_name);
+    free_array(data_s->every_rooms);
     free(data_s);
 }
 

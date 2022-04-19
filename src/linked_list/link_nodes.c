@@ -9,6 +9,9 @@
 
 list_t *get_address_by_name(list_t **tab_node, char *name)
 {
+    for (int i = 0; name[i] != '\0'; i++)
+        if (name[i] == '\n')
+            name[i] = '\0';
     for (int i = 0; tab_node[i] != NULL; i++) {
         if (my_strcmp(tab_node[i]->name, name) == 0) {
             return (tab_node[i]);
