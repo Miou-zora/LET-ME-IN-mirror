@@ -5,6 +5,8 @@
 ** is_number
 */
 
+#include "my.h"
+
 int is_str_nbr(char *str)
 {
     for (int i = 0; str[i] != '\n' && str[i] != '\0'; i++)
