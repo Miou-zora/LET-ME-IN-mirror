@@ -87,7 +87,7 @@ void display_path(data_t *data);
 
 char ***get_all_path(list_t *start, char *end_name);
 void remove_path(char **path, list_t *node);
-char **get_shortest_path_rec(list_t *start, int size_matrix, char *end_name);m
+char **get_shortest_path_rec(list_t *start, int size_matrix, char *end_name);
 
 /******************************enum********************************************/
 
