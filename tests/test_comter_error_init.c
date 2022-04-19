@@ -26,6 +26,8 @@ Test(test_init, test_if_init_is_good)
 {
     error_comter_t *error_comter_s = malloc(sizeof(error_comter_t));
 
+    if (!error_comter_s)
+        return (NULL);
     cr_assert_eq(test_init(error_comter_s), 0);
     free(error_comter_s);
 }

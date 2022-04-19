@@ -17,6 +17,8 @@ char *my_itoa(int nb)
     int i = 0;
     int idx = 1;
 
+    if (!out_str)
+        return (NULL);
     if (nb == -2147483648)
         return ("-2147483648");
     if (nb < 0) {
@@ -25,8 +27,7 @@ char *my_itoa(int nb)
         nb *= -1;
         nb_len++;
         idx++;
-    }
-    for (;i < nb_len; i++ / idx++)
+    } for (;i < nb_len; i++ / idx++)
         out_str[i] = ((nb / my_compute_power_rec(10, nb_len - idx)) % 10) + 48;
     out_str[i] = 0;
     return (out_str);

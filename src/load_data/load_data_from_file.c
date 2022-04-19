@@ -31,6 +31,8 @@ int load_data_from_file(data_t *data_s)
     char *buff = NULL;
     int is_error = 0;
 
+    if (!error_comter_s)
+        return (84);
     init_error_comter(error_comter_s);
     if (getline(&buff, &buffsize, stdin) == -1) {
         my_putstr_error(EMPTY_FILE);

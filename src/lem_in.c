@@ -33,6 +33,8 @@ int lem_in(int ac, char **av)
     list_t **tab_node;
 
     (void)av;
+    if (!data_s)
+        return (84);
     if (ac != 1) {
         my_putstr_error(TO_MUCH_ARG);
         free_data(data_s);
