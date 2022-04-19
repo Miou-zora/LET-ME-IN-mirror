@@ -19,6 +19,7 @@ Test(get_start, find_end)
     char **save_data = data_to_array_str(buff, " ");
     data_t *data_s = malloc(sizeof(data_t));
 
+    error_comter_s->count_part = 1;
     cr_assert_eq(get_end(save_data, buff, error_comter_s, data_s), 0);
     free(buff);
     free(data_s);
@@ -33,6 +34,7 @@ Test(get_start, find_end_pos)
     char **save_data = data_to_array_str(buff, " ");
     data_t *data_s = malloc(sizeof(data_t));
 
+    error_comter_s->count_part = 1;
     error_comter_s->is_next_end = 1;
     cr_assert_eq(get_end(save_data, buff, error_comter_s, data_s), 0);
     free(buff);

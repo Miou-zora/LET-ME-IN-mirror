@@ -54,18 +54,7 @@ Test(analyse_get_value, get_start_or_end)
     error_comter_t *error_comter_s = malloc(sizeof(error_comter_t));
     data_t *data_s = malloc(sizeof(data_t));
 
-    cr_assert_eq(analyse_get_value(buff, data_s, error_comter_s), 0);
-    free(buff);
-    free(data_s);
-    free(error_comter_s);
-}
-
-Test(analyse_get_value, get_start_or_end_2)
-{
-    char *buff = my_strdup("##end\n");
-    error_comter_t *error_comter_s = malloc(sizeof(error_comter_t));
-    data_t *data_s = malloc(sizeof(data_t));
-
+    error_comter_s->count_part = 1;
     cr_assert_eq(analyse_get_value(buff, data_s, error_comter_s), 0);
     free(buff);
     free(data_s);
