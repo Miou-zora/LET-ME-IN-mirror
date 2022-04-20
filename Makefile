@@ -37,7 +37,8 @@ TEST_FONC	=	tests/test_is_number.c 				\
 				tests/test_get_value_start.c		\
 				tests/test_get_value_end.c			\
 				tests/test_analyse_get_value.c		\
-				tests/test_free_array.c
+				tests/test_free_array.c				\
+				tests/test_path_finding.c
 
 OBJ_SRC		=	$(SRC:.c=.o)
 OBJ_LIST	= 	$(LISTSRC:.c=.o)

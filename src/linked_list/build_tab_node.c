@@ -44,7 +44,9 @@ int build_each_node(list_t **tab_node, data_t *data, char **info)
         return (-1);
     }
     tab_node[0]->name = data->start;
+    tab_node[0]->visited = false;
     tab_node[1]->name = data->end;
+    tab_node[1]->visited = false;
     if (info == NULL)
         return (0);
     for (int i = 0; info[i] != NULL; i++, j++) {

@@ -46,8 +46,9 @@ char **get_shortest_path_rec(list_t *start, int size_matrix, char *end_name)
     char **shortest_path = NULL;
 
     if (start == NULL || start->visited == true ||
-    start->next == NULL || start->next[0] == NULL)
+    start->next == NULL || start->next[0] == NULL) {
         return(NULL);
+    }
     if (my_strcmp(start->name, end_name) == 0) {
         path = my_calloc(size_matrix + 1, sizeof(*path));
         path[0] = start->name;

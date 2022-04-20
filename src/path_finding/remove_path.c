@@ -9,6 +9,9 @@
 
 list_t *find_next(list_t *node, char *node_name)
 {
+    if (node == NULL) {
+        return (NULL);
+    }
     for (int j = 0; node->next[j] != NULL; j++) {
         if (my_strcmp(node->next[j]->name, node_name) == 0) {
             return (node->next[j]);
