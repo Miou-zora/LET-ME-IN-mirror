@@ -20,7 +20,13 @@ SRC 		= 	src/lem_in.c 									\
 				src/display/display_info.c 						\
 				src/display/display_path.c 						\
 				src/path_finding/remove_path.c 					\
-				src/path_finding/get_shortest_path.c
+				src/path_finding/get_shortest_path.c 			\
+				src/display/append_int_list.c 					\
+				src/display/count_int_array.c 					\
+				src/display/display_movement.c 					\
+				src/display/get_ants.c 							\
+				src/display/get_len_paths.c 					\
+				src/display/get_pos_paths.c 					\
 
 LISTSRC		=	src/linked_list/build_linked_list.c 	\
 				src/linked_list/display_linked_list.c 	\
