@@ -20,7 +20,7 @@ Test(get_start, find_start)
     data_t *data_s = malloc(sizeof(data_t));
 
     if (!error_comter_s || !data_s)
-        return (NULL);
+        return;
     error_comter_s->count_part = 1;
     cr_assert_eq(get_start(save_data, buff, error_comter_s, data_s), 0);
     free(buff);
@@ -37,7 +37,7 @@ Test(get_start, find_start_pos)
     data_t *data_s = malloc(sizeof(data_t));
 
     if (!error_comter_s || !data_s)
-        return (NULL);
+        return;
     error_comter_s->count_part = 1;
     error_comter_s->is_next_start = 1;
     cr_assert_eq(get_start(save_data, buff, error_comter_s, data_s), 0);
@@ -55,7 +55,7 @@ Test(get_start, bad_room)
     data_t *data_s = malloc(sizeof(data_t));
 
     if (!error_comter_s || !data_s)
-        return (NULL);
+        return;
     error_comter_s->is_next_start = 1;
     cr_assert_eq(get_start(save_data, buff, error_comter_s, data_s), 1);
     free(buff);
@@ -72,7 +72,7 @@ Test(get_start, no_start_find)
     data_t *data_s = malloc(sizeof(data_t));
 
     if (!error_comter_s || !data_s)
-        return (NULL);
+        return;
     error_comter_s->is_next_start = 0;
     cr_assert_eq(get_start(save_data, buff, error_comter_s, data_s), 1);
     free(buff);
@@ -89,7 +89,7 @@ Test(get_start, nothing_find)
     data_t *data_s = malloc(sizeof(data_t));
 
     if (!error_comter_s || !data_s)
-        return (NULL);
+        return;
     error_comter_s->is_next_start = 0;
     cr_assert_eq(get_start(save_data, buff, error_comter_s, data_s), 1);
     free(buff);
