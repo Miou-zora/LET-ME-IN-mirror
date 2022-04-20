@@ -47,7 +47,6 @@ int lem_in(int ac, char **av)
     }
     tab_node = build_link(data_s);
     display_info(data_s, tab_node);
-    display_path(data_s, tab_node);
     free_tab_node(tab_node);
     free_data(data_s);
     return (0);
