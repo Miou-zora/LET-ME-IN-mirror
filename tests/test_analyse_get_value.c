@@ -19,7 +19,7 @@ Test(analyse_get_value, find_ants)
     data_t *data_s = malloc(sizeof(data_t));
 
     if (!error_comter_s || !data_s)
-        return (NULL);
+        return;
     cr_assert_eq(analyse_get_value(buff, data_s, error_comter_s), 0);
     free(buff);
     free(data_s);
@@ -33,7 +33,7 @@ Test(analyse_get_value, no_buff)
     data_t *data_s = malloc(sizeof(data_t));
 
     if (!error_comter_s || !data_s)
-        return (NULL);
+        return;
     cr_assert_eq(analyse_get_value(buff, data_s, error_comter_s), 0);
     free(buff);
     free(data_s);
@@ -47,7 +47,7 @@ Test(analyse_get_value, buff_with_comments)
     data_t *data_s = malloc(sizeof(data_t));
 
     if (!error_comter_s || !data_s)
-        return (NULL);
+        return;
     cr_assert_eq(analyse_get_value(buff, data_s, error_comter_s), 0);
     free(buff);
     free(data_s);
@@ -61,7 +61,7 @@ Test(analyse_get_value, get_start_or_end)
     data_t *data_s = malloc(sizeof(data_t));
 
     if (!error_comter_s || !data_s)
-        return (NULL);
+        return;
     error_comter_s->count_part = 1;
     cr_assert_eq(analyse_get_value(buff, data_s, error_comter_s), 0);
     free(buff);

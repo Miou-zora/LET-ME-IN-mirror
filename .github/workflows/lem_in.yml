@@ -34,7 +34,7 @@ jobs:
     container: epitechcontent/epitest-docker
     steps:
       - uses: actions/checkout@v2
-      - name: check if the source code can compile
+      - name: check if the source code can compile project
         timeout-minutes: 2
         run: make
       - name: clean the repository
@@ -47,20 +47,13 @@ jobs:
               exit 1
             fi
           done
-
-  run_tests:
-    runs-on: ubuntu-latest
-    needs: [check_program_compilation]
-    container: epitechcontent/epitest-docker
-    timeout-minutes: 2
-    steps:
-      - uses: actions/checkout@v2
-      - name: check if the source code can compile
+      - name: check if the source code can compile tests
+        timeout-minutes: 2
         run: make tests_run
 
   push_to_github:
     runs-on: ubuntu-latest
-    needs: [run_tests]
+    needs: [check_program_compilation]
     steps:
       - uses: actions/checkout@v2
         with:
