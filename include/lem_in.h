@@ -81,6 +81,12 @@ int link_all_nodes(list_t **tab_node, char **path);
 //!display info
 void display_info(data_t *data, list_t **tab_node);
 void display_path(data_t *data, list_t **tab_node);
+void append_int_list(int *list, int value);
+int count_int_array(int *ants);
+void display_movement(int **ants, char ***all_paths, int k);
+int **get_ants(char ***all_paths, int nbr_paths, data_t *data);
+int get_len_paths(char ***all_paths);
+int get_pos_paths(char ***all_paths, int **ants, int nbr_paths);
 
 //!path finding
 
