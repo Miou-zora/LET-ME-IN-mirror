@@ -14,7 +14,7 @@ void display_ends_movement(int nbr_ant, char *room)
 
 void display_space_last_line(int **ants, int i, int j)
 {
-    if (ants[i + 1] != NULL && ants[i][j + 1] != 0) {
+    if (ants[i + 1] != NULL || ants[i][j + 1] != 0) {
         my_putchar(' ');
     }
 }
