@@ -58,6 +58,8 @@ int check_name(data_t *data_s)
 
 int error_data(data_t *data_s)
 {
+    if (data_s->path == NULL)
+        return (84);
     if (data_s->nb_ants < 1) {
         my_putstr_error(NEGATIVE_ANTS);
         return (84);
@@ -65,15 +67,17 @@ int error_data(data_t *data_s)
     if (check_end_start(data_s->start) == 84 ||
     check_end_start(data_s->end) == 84)
         return (84);
+    for (int i = 0; data_s->path[i] != NULL; i++) {
+        if (check_path_name(data_s, data_s->path[i]) == 84)
+            return (84);
+    }
+    if (data_s->room_name == NULL)
+        return (0);
     for (int i = 0; data_s->room_name[i] != NULL; i++) {
         if (check_end_start(data_s->room_name[i]) == 84)
             return (84);
     }
     if (check_name(data_s) == 84)
         return (84);
-    for (int i = 0; data_s->path[i] != NULL; i++) {
-        if (check_path_name(data_s, data_s->path[i]) == 84)
-            return (84);
-    }
     return (0);
 }

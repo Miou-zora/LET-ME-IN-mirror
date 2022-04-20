@@ -21,6 +21,8 @@ size_t get_size_malloc_tab(char **info)
 {
     size_t size = 0;
 
+    if (info == NULL)
+        return (size);
     for (int i = 0; info[i] != NULL; i++) {
         if (is_end_declaration_name(info[i]) == 1) {
             size++;
@@ -43,6 +45,8 @@ int build_each_node(list_t **tab_node, data_t *data, char **info)
     }
     tab_node[0]->name = data->start;
     tab_node[1]->name = data->end;
+    if (info == NULL)
+        return (0);
     for (int i = 0; info[i] != NULL; i++, j++) {
         temp = malloc(sizeof(list_t));
         if (temp == NULL) {

@@ -46,12 +46,8 @@ int lem_in(int ac, char **av)
         return (84);
     }
     tab_node = build_link(data_s);
-    char ***temp = get_all_path(tab_node[0], data_s->end, tab_node);
-    for (int i = 0; temp[i]; i++) {
-        print_array_str(temp[i]);
-        my_printf("\n");
-    }
     display_info(data_s, tab_node);
+    display_path(data_s, tab_node);
     free_tab_node(tab_node);
     free_data(data_s);
     return (0);

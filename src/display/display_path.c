@@ -9,7 +9,7 @@
 
 void display_path(data_t *data, list_t **tab_node)
 {
-    char ***moves = get_all_path(tab_node[0], data->end);
+    char ***moves = get_all_path(tab_node[0], data->end, tab_node);
     for (int i = 0; moves[i] != NULL; i++) {
         for (int j = 0; moves[i][j] != NULL; j++)
             my_printf("%s", moves[i][j]);
