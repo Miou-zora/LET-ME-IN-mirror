@@ -32,9 +32,8 @@ void remove_path(char **path, list_t *node)
         return;
     }
     node = find_next(node, path[len_array - 2]);
-    for (int i = len_array - 2; i != 0 && node != NULL; i--) {
+    for (int i = len_array - 2; i != 0; i--) {
         node->visited = true;
         node = find_next(node, path[i - 1]);
     }
-
 }

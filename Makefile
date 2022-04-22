@@ -97,7 +97,6 @@ tests_run:		tclean $(NAME)
 			./$(TEST_BINARY)
 			gcovr -e tests
 			gcovr -e tests -bu
-			./lem_in < tests/maps/normal_map
 
 tclean:
 			@$(RM) tests/*.gc*
