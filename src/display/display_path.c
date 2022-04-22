@@ -16,7 +16,9 @@ void display_path(data_t *data, list_t **tab_node)
 
     for (int i = 1; len_first >= i; i++) {
         display_movement(ants, all_paths, i);
-        my_putchar('\n');
+        if (i != len_first) {
+            my_putchar('\n');
+        }
     }
     for (int i = 0; all_paths[i] != NULL; i++) {
         free(all_paths[i]);
