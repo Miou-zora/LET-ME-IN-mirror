@@ -54,5 +54,6 @@
     int get_len_array(char **arr);
     void print_array_str(char **arr);
     char **my_arraydup(char **src);
+    char *my_strcat_dup(char *str1, char *str2);
 
 #endif/* !MY_H_ */
