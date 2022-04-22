@@ -76,6 +76,23 @@ Test(get_all_path, normal_case)
     char ***paths = get_all_path(tab_node[0], data_s->end, tab_node);
 }
 
+Test(get_all_path, no_path)
+{
+    data_t *data_s = generate_data();
+    list_t **tab_node;
+
+    if (data_s == NULL) {
+        return;
+    }
+    free(data_s->path[0]);
+    data_s->path[0] = my_strdup("2-7");
+    free(data_s->path[11]);
+    data_s->path[11] = my_strdup("5-2");
+    tab_node = build_link(data_s);
+    char ***paths = get_all_path(tab_node[0], data_s->end, tab_node);
+    cr_assert_null(paths);
+}
+
 Test(update_shortest_path, with_null_value)
 {
     update_shortest_path(NULL, NULL);
@@ -118,8 +135,15 @@ Test(get_shortest_path_rec, with_null_value)
 Test(find_next, with_null_value)
 {
     list_t *list = my_calloc(1, sizeof(*list));
+    char *str = my_strdup("test");
 
-    if (list == NULL) {
+    if (list == NULL || str == NULL) {
+        if (list != NULL) {
+            free(list);
+        }
+        if (str != NULL) {
+            free(str);
+        }
         return;
     }
     list->next = my_calloc(1, sizeof(*list));
@@ -127,21 +151,35 @@ Test(find_next, with_null_value)
         free(list);
         return;
     }
+    find_next(NULL, NULL);
+    find_next(list, NULL);
+    find_next(list, str);
+    free(list->next);
+    list->next = NULL;
     find_next(list, NULL);
 }
 
 Test(remove_path, with_null_value)
 {
     char **room_name = my_calloc(8, sizeof(*room_name));
+    list_t *list = my_calloc(1, sizeof(*list));
 
-    if (room_name == NULL) {
+    if (room_name == NULL || list == NULL) {
+        if (room_name != NULL) {
+            free(room_name);
+        }
+        if (list != NULL) {
+            free(list);
+        }
         return;
     }
     room_name[0] = my_strdup("2");
+    remove_path(room_name, list);
     room_name[1] = my_strdup("3");
     room_name[2] = my_strdup("4");
     room_name[3] = my_strdup("5");
     room_name[4] = my_strdup("6");
     room_name[5] = my_strdup("7");
     remove_path(room_name, NULL);
+    remove_path(NULL, NULL);
 }

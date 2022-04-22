@@ -32,6 +32,9 @@ void display_line_movement(int **ants, char ***all_paths, int k, int i)
 
 void display_movement(int **ants, char ***all_paths, int k)
 {
+    if (ants == NULL || all_paths == NULL) {
+        return;
+    }
     for (int i = 0; ants[i] != NULL; i++) {
         display_line_movement(ants, all_paths, k, i);
     }

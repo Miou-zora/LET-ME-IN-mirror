@@ -80,5 +80,9 @@ char ***get_all_path(list_t *start, char *end_name, list_t **all_list)
             i++;
         }
     } while (path != NULL);
+    if (i == 0) {
+        free(all_path);
+        return (NULL);
+    }
     return (all_path);
 }
