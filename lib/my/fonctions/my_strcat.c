@@ -31,9 +31,7 @@ char *my_strcat_dup(char *str1, char *str2)
     for (size_t j = 0; str1[j] != '\0'; j++, i++) {
         res[i] = str1[j];
     }
-    res[i] = '\n';
-    i++;
-    for (size_t j = 0; str2[j] != '\n'; j++, i++) {
+    for (size_t j = 0; str2[j] != '\0'; j++, i++) {
         res[i] = str1[j];
     }
     res[i] = '\0';
