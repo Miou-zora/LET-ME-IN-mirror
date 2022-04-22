@@ -24,7 +24,8 @@ void display_space_last_line(int *h)
 void display_line_movement(int **ants, char ***all_paths, int *ki, int *h)
 {
     for (int j = 0; ants[ki[1]][j] != 0; j++) {
-        if ((ki[0] - j) <= get_len_array(all_paths[ki[1]]) && (ki[0] - j) > 1) {
+        if ((ki[0] - j) <= get_len_array(all_paths[ki[1]]) &&
+        (ki[0] - j) > 1) {
             display_space_last_line(h);
             display_ends_movement(ants[ki[1]][j],
             all_paths[ki[1]][get_len_array(all_paths[ki[1]]) + j - ki[0]]);
