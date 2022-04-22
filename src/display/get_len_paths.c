@@ -11,6 +11,9 @@ int get_len_paths(char ***all_paths)
 {
     int i = 0;
 
+    if (all_paths == NULL) {
+        return (0);
+    }
     while (all_paths[i] != NULL) {
         i++;
     }

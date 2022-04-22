@@ -16,6 +16,6 @@ void display_info(data_t *data, list_t **tab_node)
     for (int i = 0; data->path[i] != NULL; i++) {
         my_printf("%s", data->path[i]);
     }
-    my_printf("#moves");
+    my_printf("#moves\n");
     display_path(data, tab_node);
 }
