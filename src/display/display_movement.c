@@ -19,23 +19,29 @@ void display_space_last_line(int **ants, int i, int j)
     }
 }
 
-void display_line_movement(int **ants, char ***all_paths, int k, int i)
+void display_line_movement(int **ants, char ***all_paths, int k, int i, int *h)
 {
     for (int j = 0; ants[i][j] != 0; j++) {
         if ((k - j) <= get_len_array(all_paths[i]) && (k - j) > 1) {
+            if ((*h) > 0) {
+                my_putchar(' ');
+            } else {
+                (*h) += 1;
+            }
             display_ends_movement(ants[i][j],
             all_paths[i][get_len_array(all_paths[i]) + j - k]);
-            display_space_last_line(ants, i, j);
         }
     }
 }
 
 void display_movement(int **ants, char ***all_paths, int k)
 {
+    int h = 0;
+
     if (ants == NULL || all_paths == NULL) {
         return;
     }
     for (int i = 0; ants[i] != NULL; i++) {
-        display_line_movement(ants, all_paths, k, i);
+        display_line_movement(ants, all_paths, k, i, &h);
     }
 }
