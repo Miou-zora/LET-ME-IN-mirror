@@ -38,7 +38,7 @@ int link_node_on_str(list_t **tab_node, char *name)
     list_t *node2;
 
     if (name_dup == NULL) {
-        return(-1);
+        return (-1);
     }
     nodes = data_to_array_str(name_dup, "-");
     if (nodes == NULL) {
