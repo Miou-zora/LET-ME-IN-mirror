@@ -16,7 +16,7 @@ Test(remove_comments, double_hashtag)
 {
     char *str = my_strdup("hola ##arbre");
 
-    cr_assert_str_eq(remove_comments(str), "hola ##arbre");
+    cr_assert_str_eq(remove_comments(str), "hola \n");
 }
 
 Test(remove_comments, one_hashtag_with_space)
@@ -51,5 +51,5 @@ Test(remove_comments, two_hashtag)
 {
     char *str = my_strdup("##arbre");
 
-    cr_assert_str_eq(remove_comments(str), "##arbre");
+    cr_assert_str_eq(remove_comments(str), "\n");
 }
