@@ -32,7 +32,7 @@ char **search_shortest_path(list_t *start, char *end_name, int size_matrix)
     char **shortest_path = NULL;
 
     for (int i = 0; start->next[i] != NULL; i++) {
-        if ((unsigned long)start->next[i] != 1 && start->next[i]->visited == false) {
+        if ((unsigned long)(start->next[i]) != 1 && start->next[i]->visited == false) {
             cursor = get_shortest_path_rec(start->next[i], size_matrix,
             end_name);
             update_shortest_path(&shortest_path, cursor);

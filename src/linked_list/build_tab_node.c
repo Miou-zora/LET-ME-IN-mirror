@@ -67,7 +67,7 @@ int build_each_node(list_t **tab_node, data_t *data, char **info)
 list_t **build_tab_node(data_t *data, char **info)
 {
     size_t nb_node = get_size_malloc_tab(info);
-    list_t **tab_node = malloc(sizeof(list_t *) * (nb_node + 3));
+    list_t **tab_node = my_calloc((nb_node + 3), sizeof(*tab_node));
 
     if (tab_node == NULL)
         return (NULL);
