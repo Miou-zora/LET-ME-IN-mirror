@@ -9,6 +9,9 @@
 
 void free_tab_node(list_t **tab_node)
 {
+    if (tab_node == NULL) {
+        return;
+    }
     for (int i = 0; tab_node[i] != NULL; i++) {
         free(tab_node[i]->next);
         free(tab_node[i]);
