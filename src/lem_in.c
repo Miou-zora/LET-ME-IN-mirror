@@ -27,27 +27,36 @@ void free_data(data_t *data_s)
     free(data_s);
 }
 
+int find_path(data_t *data_s)
+{
+    list_t **tab_node = build_link(data_s);
+
+    display_info(data_s);
+    display_path(data_s, tab_node);
+    free_tab_node(tab_node);
+    free_data(data_s);
+    return (0);
+}
+
 int lem_in(int ac, char **av)
 {
     data_t *data_s = malloc(sizeof(data_t));
-    list_t **tab_node;
 
     (void)av;
     if (!data_s)
         return (84);
     if (ac != 1) {
         my_putstr_error(TO_MUCH_ARG);
-        free_data(data_s);
+        free(data_s);
         return (84);
     }
     init_data(data_s);
     if (load_data_from_file(data_s) == 84) {
+        display_info(data_s);
         free_data(data_s);
         return (84);
     }
-    tab_node = build_link(data_s);
-    display_info(data_s, tab_node);
-    free_tab_node(tab_node);
-    free_data(data_s);
+    if (find_path(data_s) == 84)
+        return (84);
     return (0);
 }

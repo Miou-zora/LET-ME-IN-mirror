@@ -7,15 +7,12 @@
 
 #include "lem_in.h"
 
-void display_info(data_t *data, list_t **tab_node)
+void display_info(data_t *data)
 {
     my_printf("#number_of_ants\n%i\n", data->nb_ants);
     my_printf("#rooms\n");
     print_array_str(data->every_rooms);
     my_printf("#tunnels\n");
-    for (int i = 0; data->path[i] != NULL; i++) {
-        my_printf("%s", data->path[i]);
-    }
+    print_array_str(data->path);
     my_printf("#moves\n");
-    display_path(data, tab_node);
 }

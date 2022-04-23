@@ -23,7 +23,7 @@ char *my_strcat(char *dest, char *src)
 
 char *my_strcat_dup(char *str1, char *str2)
 {
-    char *res = malloc(sizeof(char) * (my_strlen(str1) + my_strlen(str2) + 2));
+    char *res = malloc(sizeof(char) * (my_strlen(str1) + my_strlen(str2) + 1));
     size_t i = 0;
 
     if (res == NULL)
@@ -32,10 +32,9 @@ char *my_strcat_dup(char *str1, char *str2)
         res[i] = str1[j];
     }
     for (size_t j = 0; str2[j] != '\0'; j++, i++) {
-        res[i] = str1[j];
+        res[i] = str2[j];
     }
     res[i] = '\0';
     free(str1);
-    free(str2);
     return (res);
 }

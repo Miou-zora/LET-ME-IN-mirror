@@ -22,7 +22,6 @@ int check_sec_name(char **tmp, char *save, data_t *data_s)
     int is_new_name = 0;
     char *temp = my_strdup(tmp[1]);
 
-    temp[my_strlen(tmp[1]) - 1] = '\0';
     is_new_name = check_room_name(data_s, is_new_name, temp);
     if (my_strcmp(temp, data_s->start) == 0)
         is_new_name += 1;

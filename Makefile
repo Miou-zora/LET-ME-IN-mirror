@@ -27,6 +27,7 @@ SRC 		= 	src/lem_in.c 									\
 				src/display/get_ants.c 							\
 				src/display/get_len_paths.c 					\
 				src/display/get_pos_paths.c 					\
+				src/load_data/check_nbr_elements.c				\
 
 LISTSRC		=	src/linked_list/build_linked_list.c 	\
 				src/linked_list/display_linked_list.c 	\

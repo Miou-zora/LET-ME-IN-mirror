@@ -23,6 +23,7 @@
         char **room_name;
         char **path;
         char **every_rooms;
+        int is_error;
     } data_t;
 
     typedef struct error_comter {
@@ -47,19 +48,18 @@ int get_start(char **save_data, char *buff, error_comter_t *error_comter_s,
 data_t *data_s);
 int get_end(char **save_data, char *buff, error_comter_t *error_comter_s,
 data_t *data_s);
-void get_rooms_and_tunnels(char **save_data, char *buff, data_t *data_s,
-error_comter_t *error_comter_s);
+void get_rooms_and_tunnels(char **save_data, char *buff, data_t *data_s);
 int analyse_get_value(char *buff, data_t *data_s,
 error_comter_t *error_comter_s);
 void save_tunnel(data_t *data_s, char *buff);
 void save_room(data_t *data_s, char *buff);
 
 //!error handling
-int check_error_file(error_comter_t *error_comter_s);
-int check_error_file_end(error_comter_t *error_comter_s);
+int check_error_file(data_t *data, char **file_data);
 int error_data(data_t *data_s);
 int check_path_name(data_t *data_s, char *path);
 void save_every_rooms(data_t *data_s, char *buff);
+int check_nbr_elements(error_comter_t *error_comter_s);
 
 //!useful fonctions
 
@@ -79,7 +79,7 @@ list_t **build_tab_node(data_t *data, char **info);
 int link_all_nodes(list_t **tab_node, char **path);
 
 //!display info
-void display_info(data_t *data, list_t **tab_node);
+void display_info(data_t *data);
 void display_path(data_t *data, list_t **tab_node);
 void append_int_list(int *list, int value);
 int count_int_array(int *ants);

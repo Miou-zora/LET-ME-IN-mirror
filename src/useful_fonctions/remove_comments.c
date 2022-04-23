@@ -13,7 +13,8 @@ char *remove_comments(char *buff)
             continue;
         }
         if (buff[i] == '#' && buff[i + 1] != '#') {
-            buff[i] = '\0';
+            buff[i] = '\n';
+            buff[i + 1] = '\0';
             break;
         }
     }
