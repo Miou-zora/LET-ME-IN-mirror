@@ -12,6 +12,7 @@ int find_end(char *buff, error_comter_t *error_comter_s, data_t *data_s)
     if (my_strcmp(buff, "##end") == 0) {
         if (error_comter_s->actual_part != 1) {
             my_printf("#rooms\n");
+            error_comter_s->count_parts += 1;
         }
         error_comter_s->actual_part = 1;
         if (error_comter_s->is_next_start == 1)
@@ -29,6 +30,7 @@ int find_start(char *buff, error_comter_t *error_comter_s, data_t *data_s)
     if (my_strcmp(buff, "##start") == 0) {
         if (error_comter_s->actual_part != 1) {
             my_printf("#rooms\n");
+            error_comter_s->count_parts += 1;
         }
         error_comter_s->actual_part = 1;
         if (error_comter_s->is_next_end == 1)
@@ -47,6 +49,7 @@ data_t *data_s)
     if (get_len_array(save_data) == 3 && error_comter_s->is_next_start == 1) {
         if (error_comter_s->actual_part != 1) {
             my_printf("#rooms\n");
+            error_comter_s->count_parts += 1;
         }
         error_comter_s->actual_part = 1;
         error_comter_s->is_next_start = 0;
@@ -71,6 +74,7 @@ data_t *data_s)
     if (get_len_array(save_data) == 3 && error_comter_s->is_next_end == 1) {
         if (error_comter_s->actual_part != 1) {
             my_printf("#rooms\n");
+            error_comter_s->count_parts += 1;
         }
         error_comter_s->actual_part = 1;
         error_comter_s->is_next_end = 0;

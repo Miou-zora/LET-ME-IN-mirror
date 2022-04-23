@@ -15,6 +15,7 @@ void init_error_comter(error_comter_t *error_comter_s)
     error_comter_s->start = 0;
     error_comter_s->end = 0;
     error_comter_s->actual_part = 0;
+    error_comter_s->count_parts = 0;
 }
 
 int check_error_file(data_t *data, char **file)
@@ -27,6 +28,8 @@ int check_error_file(data_t *data, char **file)
     init_error_comter(error_comter_s);
     for (int i = 0; file[i] != NULL; i++) {
         is_error = analyse_get_value(file[i], data, error_comter_s);
+        if (error_comter_s->count_parts > 3)
+            data->is_error = 1;
         if (is_error == 84 || check_nbr_elements(error_comter_s) == 84 ||
         data->is_error == 1) {
             free(error_comter_s);

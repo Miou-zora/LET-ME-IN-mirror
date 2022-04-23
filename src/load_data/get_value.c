@@ -15,8 +15,10 @@ error_comter_t *error_comter_s)
             data_s->is_error = 1;
             return;
         }
-        if (error_comter_s->actual_part != 2)
+        if (error_comter_s->actual_part != 2) {
             my_printf("#tunnels\n");
+            error_comter_s->count_parts += 1;
+        }
         error_comter_s->actual_part = 2;
         if (is_tunnel(buff) == 1) {
             data_s->is_error = 1;
@@ -31,8 +33,10 @@ void get_rooms_and_tunnels(char **save_data, char *buff, data_t *data_s,
 error_comter_t *error_comter_s)
 {
     if (get_len_array(save_data) == 3) {
-        if (error_comter_s->actual_part != 1)
+        if (error_comter_s->actual_part != 1) {
+            error_comter_s->count_parts += 1;
             my_printf("#rooms\n");
+        }
         error_comter_s->actual_part = 1;
         if (is_room(buff) == 84) {
             data_s->is_error = 1;
@@ -70,6 +74,7 @@ error_comter_t *error_comter_s)
             return (free_and_return(line, save_data, 0, NULL));
         data_s->nb_ants = my_getnbr(tmp);
         error_comter_s->actual_part -= 1;
+        error_comter_s->count_parts += 1;
         error_comter_s->ants += 1;
         my_printf("#number_of_ants\n%i\n", data_s->nb_ants);
         return (free_and_return(line, save_data, 0, NULL));

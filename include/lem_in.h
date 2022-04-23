@@ -33,6 +33,7 @@
         int start;
         int end;
         int actual_part;
+        int count_parts;
     } error_comter_t;
 
 /******************************fonctions***************************************/
