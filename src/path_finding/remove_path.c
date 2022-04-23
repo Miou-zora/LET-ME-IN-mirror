@@ -15,12 +15,13 @@ list_t *find_next(list_t *node, char *node_name)
         return (NULL);
     }
     for (int j = 0; node->next[j] != NULL; j++) {
-        if (my_strcmp(node->next[j]->name, node_name) == 0) {
+        if ((unsigned long)node->next[j] != 1 && my_strcmp(node->next[j]->name, node_name) == 0) {
             cursor = node->next[j];
             node->next[j] = (struct list_s *)1;
             return (cursor);
         }
     }
+    my_printf("5");
     return (NULL);
 }
 
