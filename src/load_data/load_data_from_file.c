@@ -28,7 +28,7 @@ int load_data_from_file(data_t *data_s)
         free(buff);
         return (84);
     }
-    file = my_strdup(buff);
+    file = remove_space(remove_comments(my_strdup(buff)));
     while (getline(&buff, &buffsize, stdin) != -1) {
         buff = remove_space(remove_comments(buff));
         file = my_strcat_dup(file, buff);

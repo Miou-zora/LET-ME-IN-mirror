@@ -14,7 +14,7 @@ void init_error_comter(error_comter_t *error_comter_s)
     error_comter_s->ants = 0;
     error_comter_s->start = 0;
     error_comter_s->end = 0;
-    error_comter_s->count_part = 0;
+    error_comter_s->actual_part = 0;
 }
 
 int check_error_file(data_t *data, char **file)
@@ -31,6 +31,7 @@ int check_error_file(data_t *data, char **file)
             data->is_error = 1;
         }
     }
+    free(error_comter_s);
     if (data->is_error == 1)
         return (84);
     return (0);

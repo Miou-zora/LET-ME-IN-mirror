@@ -32,7 +32,7 @@
         int ants;
         int start;
         int end;
-        int count_part;
+        int actual_part;
     } error_comter_t;
 
 /******************************fonctions***************************************/
@@ -48,7 +48,8 @@ int get_start(char **save_data, char *buff, error_comter_t *error_comter_s,
 data_t *data_s);
 int get_end(char **save_data, char *buff, error_comter_t *error_comter_s,
 data_t *data_s);
-void get_rooms_and_tunnels(char **save_data, char *buff, data_t *data_s);
+void get_rooms_and_tunnels(char **save_data, char *buff, data_t *data_s,
+error_comter_t *error_comter_s);
 int analyse_get_value(char *buff, data_t *data_s,
 error_comter_t *error_comter_s);
 void save_tunnel(data_t *data_s, char *buff);
@@ -60,6 +61,8 @@ int error_data(data_t *data_s);
 int check_path_name(data_t *data_s, char *path);
 void save_every_rooms(data_t *data_s, char *buff);
 int check_nbr_elements(error_comter_t *error_comter_s);
+int check_error_file_end(error_comter_t *error_comter_s);
+int is_room(char *data);
 
 //!useful fonctions
 
@@ -87,6 +90,7 @@ void display_movement(int **ants, char ***all_paths, int k);
 int **get_ants(char ***all_paths, int nbr_paths, data_t *data);
 int get_len_paths(char ***all_paths);
 int get_pos_paths(char ***all_paths, int **ants, int nbr_paths);
+int is_tunnel(char *buff);
 
 //!path finding
 

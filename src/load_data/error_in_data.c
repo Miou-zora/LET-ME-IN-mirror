@@ -78,7 +78,8 @@ int error_data(data_t *data_s)
     if (check_end_start(data_s->start) == 84 ||
     check_end_start(data_s->end) == 84)
         return (84);
-
+    if (data_s->room_name == NULL)
+        return (0);
     for (int i = 0; data_s->room_name[i] != NULL; i++) {
         if (check_end_start(data_s->room_name[i]) == 84)
             return (84);
