@@ -45,8 +45,8 @@ data_t *data_s)
     return (1);
 }
 
-void get_rooms_and_tunnels(char **save_data, char *buff, data_t *data_s, error_comter_t
-*error_comter_s)
+void get_rooms_and_tunnels(char **save_data, char *buff, data_t *data_s,
+error_comter_t *error_comter_s)
 {
     if (get_len_array(save_data) == 3 && error_comter_s->count_part == 1) {
         save_every_rooms(data_s, buff);
