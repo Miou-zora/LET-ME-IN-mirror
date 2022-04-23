@@ -36,8 +36,4 @@ void remove_path(char **path, list_t *node)
         node->visited = true;
         node = find_next(node, path[i - 1]);
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/master
 }
