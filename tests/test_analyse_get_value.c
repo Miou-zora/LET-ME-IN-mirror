@@ -62,7 +62,7 @@ Test(analyse_get_value, get_start_or_end)
 
     if (!error_comter_s || !data_s)
         return;
-    error_comter_s->count_part = 1;
+    error_comter_s->actual_part = 1;
     cr_assert_eq(analyse_get_value(buff, data_s, error_comter_s), 0);
     free(buff);
     free(data_s);

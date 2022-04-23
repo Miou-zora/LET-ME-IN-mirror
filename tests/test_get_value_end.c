@@ -21,7 +21,7 @@ Test(get_start, find_end)
 
     if (!error_comter_s || !data_s)
         return;
-    error_comter_s->count_part = 1;
+    error_comter_s->actual_part = 1;
     cr_assert_eq(get_end(save_data, buff, error_comter_s, data_s), 0);
     free(buff);
     free(data_s);
@@ -38,7 +38,7 @@ Test(get_start, find_end_pos)
 
     if (!error_comter_s || !data_s)
         return;
-    error_comter_s->count_part = 1;
+    error_comter_s->actual_part = 1;
     error_comter_s->is_next_end = 1;
     cr_assert_eq(get_end(save_data, buff, error_comter_s, data_s), 0);
     free(buff);
