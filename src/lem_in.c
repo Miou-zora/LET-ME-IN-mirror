@@ -32,7 +32,9 @@ int find_path(data_t *data_s)
     list_t **tab_node = build_link(data_s);
 
     my_printf("#moves\n");
-    display_path(data_s, tab_node);
+    if (tab_node == NULL || display_path(data_s, tab_node) == 84) {
+        return (84);
+    }
     free_tab_node(tab_node);
     free_data(data_s);
     return (0);
