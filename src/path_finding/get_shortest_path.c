@@ -33,7 +33,8 @@ char **search_shortest_path(list_t *start, char *end_name, int size_matrix)
 
     for (int i = 0; start->next[i] != NULL; i++) {
         if (start->next[i]->visited == false) {
-            cursor = get_shortest_path_rec(start->next[i], size_matrix, end_name);
+            cursor = get_shortest_path_rec(start->next[i], size_matrix,
+            end_name);
             update_shortest_path(&shortest_path, cursor);
         }
     }
@@ -46,8 +47,9 @@ char **get_shortest_path_rec(list_t *start, int size_matrix, char *end_name)
     char **shortest_path = NULL;
 
     if (start == NULL || start->visited == true ||
-    start->next == NULL || start->next[0] == NULL)
-        return(NULL);
+    start->next == NULL || start->next[0] == NULL) {
+        return (NULL);
+    }
     if (my_strcmp(start->name, end_name) == 0) {
         path = my_calloc(size_matrix + 1, sizeof(*path));
         path[0] = start->name;
@@ -57,7 +59,7 @@ char **get_shortest_path_rec(list_t *start, int size_matrix, char *end_name)
     shortest_path = search_shortest_path(start, end_name, size_matrix);
     if (shortest_path == NULL) {
         start->visited = false;
-        return(NULL);
+        return (NULL);
     }
     shortest_path[get_len_array(shortest_path)] = start->name;
     start->visited = false;
@@ -79,5 +81,9 @@ char ***get_all_path(list_t *start, char *end_name, list_t **all_list)
             i++;
         }
     } while (path != NULL);
+    if (i == 0) {
+        free(all_path);
+        return (NULL);
+    }
     return (all_path);
 }

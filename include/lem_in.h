@@ -93,6 +93,8 @@ int get_pos_paths(char ***all_paths, int **ants, int nbr_paths);
 char ***get_all_path(list_t *start, char *end_name, list_t **all_list);
 void remove_path(char **path, list_t *node);
 char **get_shortest_path_rec(list_t *start, int size_matrix, char *end_name);
+void update_shortest_path(char ***shortest_path, char **cursor);
+list_t *find_next(list_t *node, char *node_name);
 
 /******************************enum********************************************/
 
