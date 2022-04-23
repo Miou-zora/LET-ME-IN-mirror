@@ -14,7 +14,7 @@
 
 Test(get_start, find_end)
 {
-    char *buff = my_strdup("##end\n");
+    char *buff = my_strdup("##end");
     error_comter_t *error_comter_s = malloc(sizeof(error_comter_t));
     char **save_data = data_to_array_str(buff, " ");
     data_t *data_s = malloc(sizeof(data_t));

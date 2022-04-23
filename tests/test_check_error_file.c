@@ -20,7 +20,7 @@ Test(check_error_file, many_ants_declaration)
     if (!error_comter_s)
         return;
     error_comter_s->ants = 2;
-    cr_assert_eq(check_error_file(error_comter_s), 84);
+    cr_assert_eq(check_nbr_elements(error_comter_s), 84);
     free(error_comter_s);
 }
 
@@ -85,7 +85,7 @@ Test(check_error_file, good_start_declaration)
     error_comter_s->start = 1;
     error_comter_s->ants = 1;
     error_comter_s->end = 1;
-    cr_assert_eq(check_error_file(error_comter_s), 0);
+    cr_assert_eq(check_nbr_elements(error_comter_s), 0);
     free(error_comter_s);
 }
 
@@ -96,7 +96,7 @@ Test(check_error_file, many_start_declaration)
     if (!error_comter_s)
         return;
     error_comter_s->start = 2;
-    cr_assert_eq(check_error_file(error_comter_s), 84);
+    cr_assert_eq(check_nbr_elements(error_comter_s), 84);
     free(error_comter_s);
 }
 
@@ -122,7 +122,7 @@ Test(check_error_file, good_end_declaration)
     error_comter_s->start = 1;
     error_comter_s->ants = 1;
     error_comter_s->end = 1;
-    cr_assert_eq(check_error_file(error_comter_s), 0);
+    cr_assert_eq(check_nbr_elements(error_comter_s), 0);
     free(error_comter_s);
 }
 
@@ -133,6 +133,6 @@ Test(check_error_file, many_end_declaration)
     if (!error_comter_s)
         return;
     error_comter_s->end = 2;
-    cr_assert_eq(check_error_file(error_comter_s), 84);
+    cr_assert_eq(check_nbr_elements(error_comter_s), 84);
     free(error_comter_s);
 }

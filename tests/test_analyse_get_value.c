@@ -40,9 +40,9 @@ Test(analyse_get_value, no_buff)
     free(error_comter_s);
 }
 
-Test(analyse_get_value, buff_with_comments)
+Test(analyse_get_value, good_buff)
 {
-    char *buff = my_strdup("38#arbre\n");
+    char *buff = my_strdup("38");
     error_comter_t *error_comter_s = malloc(sizeof(error_comter_t));
     data_t *data_s = malloc(sizeof(data_t));
 

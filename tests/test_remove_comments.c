@@ -23,28 +23,28 @@ Test(remove_comments, one_hashtag_with_space)
 {
     char *str = my_strdup("hola #arbre");
 
-    cr_assert_str_eq(remove_comments(str), "hola ");
+    cr_assert_str_eq(remove_comments(str), "hola \n");
 }
 
 Test(remove_comments, one_hashtag_no_space)
 {
     char *str = my_strdup("hola#arbre");
 
-    cr_assert_str_eq(remove_comments(str), "hola");
+    cr_assert_str_eq(remove_comments(str), "hola\n");
 }
 
 Test(remove_comments, first_hashtag)
 {
     char *str = my_strdup("#arbre");
 
-    cr_assert_str_eq(remove_comments(str), "\0");
+    cr_assert_str_eq(remove_comments(str), "\n");
 }
 
 Test(remove_comments, two_comments)
 {
     char *str = my_strdup("#arbre#arbre");
 
-    cr_assert_str_eq(remove_comments(str), "\0");
+    cr_assert_str_eq(remove_comments(str), "\n");
 }
 
 Test(remove_comments, two_hashtag)
