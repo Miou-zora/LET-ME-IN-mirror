@@ -33,6 +33,14 @@ size_t get_size_malloc_tab(char **info)
     return (size);
 }
 
+void replace_each_node(list_t **tab_node, data_t *data)
+{
+    tab_node[0]->name = data->start;
+    tab_node[0]->visited = false;
+    tab_node[1]->name = data->end;
+    tab_node[1]->visited = false;
+}
+
 int build_each_node(list_t **tab_node, data_t *data, char **info)
 {
     list_t *temp;
@@ -40,20 +48,15 @@ int build_each_node(list_t **tab_node, data_t *data, char **info)
     tab_node[0] = malloc(sizeof(list_t));
     tab_node[1] = malloc(sizeof(list_t));
 
-    if (tab_node[0] == NULL || tab_node[1] == NULL) {
+    if (tab_node[0] == NULL || tab_node[1] == NULL)
         return (-1);
-    }
-    tab_node[0]->name = data->start;
-    tab_node[0]->visited = false;
-    tab_node[1]->name = data->end;
-    tab_node[1]->visited = false;
+    replace_each_node(tab_node, data);
     if (info == NULL)
         return (0);
     for (int i = 0; info[i] != NULL; i++, j++) {
         temp = malloc(sizeof(list_t));
-        if (temp == NULL) {
+        if (temp == NULL)
             return (-1);
-        }
         temp->name = info[i];
         temp->visited = false;
         tab_node[j] = temp;
