@@ -31,7 +31,7 @@ int find_path(data_t *data_s)
 {
     list_t **tab_node = build_link(data_s);
 
-    display_info(data_s);
+    my_printf("#moves\n");
     display_path(data_s, tab_node);
     free_tab_node(tab_node);
     free_data(data_s);
@@ -52,7 +52,6 @@ int lem_in(int ac, char **av)
     }
     init_data(data_s);
     if (load_data_from_file(data_s) == 84) {
-        display_info(data_s);
         free_data(data_s);
         return (84);
     }

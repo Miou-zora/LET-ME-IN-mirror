@@ -30,6 +30,7 @@ SRC 		= 	src/lem_in.c 									\
 				src/load_data/check_nbr_elements.c				\
 				src/load_data/is_room.c							\
 				src/load_data/is_tunnel.c						\
+				src/load_data/find_start_and_end.c				\
 
 LISTSRC		=	src/linked_list/build_linked_list.c 	\
 				src/linked_list/display_linked_list.c 	\

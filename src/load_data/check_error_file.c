@@ -27,12 +27,12 @@ int check_error_file(data_t *data, char **file)
     init_error_comter(error_comter_s);
     for (int i = 0; file[i] != NULL; i++) {
         is_error = analyse_get_value(file[i], data, error_comter_s);
-        if (is_error == 84 || check_nbr_elements(error_comter_s) == 84) {
-            data->is_error = 1;
+        if (is_error == 84 || check_nbr_elements(error_comter_s) == 84 ||
+        data->is_error == 1) {
+            free(error_comter_s);
+            return (84);
         }
     }
     free(error_comter_s);
-    if (data->is_error == 1)
-        return (84);
     return (0);
 }

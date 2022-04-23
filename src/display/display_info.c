@@ -18,5 +18,4 @@ void display_info(data_t *data)
     my_printf("#tunnels\n");
     if (data->path != NULL)
         print_array_str(data->path);
-    my_printf("#moves\n");
 }
