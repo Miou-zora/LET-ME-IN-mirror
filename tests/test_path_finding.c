@@ -20,9 +20,9 @@
 
 data_t *generate_data(void)
 {
-    data_t *data_s = malloc(sizeof(*data_s));
-    char **room_name = my_calloc(8, sizeof(*room_name));
-    char **path = my_calloc(14, sizeof(*path));
+    data_t *data_s = my_calloc(1, sizeof(*data_s));
+    char **room_name = my_calloc(100, sizeof(*room_name));
+    char **path = my_calloc(100, sizeof(*path));
     int i = 0;
 
     if (data_s != NULL && (room_name == NULL || path == NULL)) {

@@ -30,7 +30,7 @@ int get_nb_connexion_node(char *node_name, char **conexion)
 int build_tab_pointers(list_t **tab_node, data_t *data)
 {
     for (int i = 0; tab_node[i] != NULL; i++) {
-        tab_node[i]->next = build_empty_array(get_len_array(data->every_rooms));
+        tab_node[i]->next = build_empty_array(get_len_array(data->room_name));
         if (tab_node[i]->next == NULL) {
             return (-1);
         }

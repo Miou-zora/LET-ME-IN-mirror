@@ -28,9 +28,7 @@ void add_new_pointers(list_t *node, list_t *new_pointer)
         }
         i++;
     }
-    if (node->next[i] != NULL) {
-        node->next[i] = new_pointer;
-    }
+    node->next[i] = new_pointer;
 }
 
 int link_node_on_str(list_t **tab_node, char *name)
