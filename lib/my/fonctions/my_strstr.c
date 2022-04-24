@@ -9,10 +9,9 @@
 
 char *my_strstr(char *str , char const *to_find)
 {
-    int index;
     int carac;
 
-    for (index = 0; str[index] != '\0'; index++) {
+    for (int index = 0; str[index] != '\0'; index++) {
         carac = 0;
         while (str[index + carac] == to_find[carac]) {
             carac += 1;

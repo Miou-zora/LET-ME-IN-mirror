@@ -21,7 +21,6 @@ list_t *find_next(list_t *node, char *node_name)
             return (cursor);
         }
     }
-    my_printf("5");
     return (NULL);
 }
 

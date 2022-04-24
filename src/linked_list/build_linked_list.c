@@ -10,24 +10,17 @@
 
 list_t **build_empty_array(int size)
 {
-    list_t **tab = malloc(sizeof(list_t) * (size + 3));
+    list_t **tab = my_calloc((size + 3), sizeof(*tab));
 
-    if (tab == NULL) {
-        return (NULL);
-    }
-    for (int i = 0; i <= size + 3; i++) {
-        tab[i] = NULL;
-    }
     return (tab);
 }
 
 int get_nb_connexion_node(char *node_name, char **conexion)
 {
     int size = 0;
-    (void) node_name;
 
     for (int i = 0; conexion[i] != NULL; i++) {
-        if (my_strstr(node_name, conexion[i]) != 0) {
+        if (my_strstr(conexion[i], node_name) != NULL) {
             size++;
         }
     }
@@ -36,11 +29,8 @@ int get_nb_connexion_node(char *node_name, char **conexion)
 
 int build_tab_pointers(list_t **tab_node, data_t *data)
 {
-    int nb_connexion = 0;
-
     for (int i = 0; tab_node[i] != NULL; i++) {
-        nb_connexion = get_nb_connexion_node(tab_node[i]->name, data->path);
-        tab_node[i]->next = build_empty_array(nb_connexion);
+        tab_node[i]->next = build_empty_array(get_len_array(data->every_rooms));
         if (tab_node[i]->next == NULL) {
             return (-1);
         }
@@ -51,12 +41,14 @@ int build_tab_pointers(list_t **tab_node, data_t *data)
 list_t **build_link(data_t *data)
 {
     list_t **tab_node = build_tab_node(data, data->room_name);
+
     if (tab_node == NULL) {
         return (NULL);
     }
     if (build_tab_pointers(tab_node, data) == -1) {
         return (NULL);
-    } else if (link_all_nodes(tab_node, data->path) == -1) {
+    }
+    if (link_all_nodes(tab_node, data->path) == -1) {
         return (NULL);
     }
     return (tab_node);

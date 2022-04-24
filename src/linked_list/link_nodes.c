@@ -5,13 +5,11 @@
 ** link_nodes
 */
 
+
 #include "lem_in.h"
 
 list_t *get_address_by_name(list_t **tab_node, char *name)
 {
-    for (int i = 0; name[i] != '\0'; i++)
-        if (name[i] == '\n')
-            name[i] = '\0';
     for (int i = 0; tab_node[i] != NULL; i++) {
         if (my_strcmp(tab_node[i]->name, name) == 0) {
             return (tab_node[i]);
@@ -25,17 +23,22 @@ void add_new_pointers(list_t *node, list_t *new_pointer)
     int i = 0;
 
     for (; node->next[i] != NULL;) {
+        if (my_strcmp(node->next[i]->name, new_pointer->name) == 0) {
+            return;
+        }
         i++;
     }
-    node->next[i] = new_pointer;
+    if (node->next[i] != NULL) {
+        node->next[i] = new_pointer;
+    }
 }
 
 int link_node_on_str(list_t **tab_node, char *name)
 {
     char *name_dup = my_strdup(name);
-    char **nodes;
-    list_t *node1;
-    list_t *node2;
+    char **nodes = NULL;
+    list_t *node1 = NULL;
+    list_t *node2 = NULL;
 
     if (name_dup == NULL) {
         return (-1);
@@ -44,6 +47,11 @@ int link_node_on_str(list_t **tab_node, char *name)
     if (nodes == NULL) {
         free(name_dup);
         return (-1);
+    }
+    if (my_strcmp(nodes[0], nodes[1]) == 0) {
+        free(nodes);
+        free(name_dup);
+        return (0);
     }
     node1 = get_address_by_name(tab_node, nodes[0]);
     node2 = get_address_by_name(tab_node, nodes[1]);
