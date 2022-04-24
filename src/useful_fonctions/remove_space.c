@@ -9,7 +9,8 @@
 
 char *remove_space(char *buff)
 {
-    for (int i = my_strlen(buff); buff[i] == ' ' || buff[i] == '\n'; i--) {
+    for (int i = my_strlen(buff) - 1; (buff[i] == ' ' || buff[i] == '\n') &&
+    i > 0; i--) {
         buff[i] = '\0';
     }
     buff[my_strlen(buff)] = '\n';

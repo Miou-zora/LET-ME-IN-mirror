@@ -9,7 +9,7 @@
 
 char *my_strcat_dup(char *str1, char *str2)
 {
-    char *res = my_calloc(my_strlen(str1) + my_strlen(str2) + 2, sizeof(char));
+    char *res = my_calloc(my_strlen(str1) + my_strlen(str2) + 1, sizeof(char));
     size_t i = 0;
 
     if (res == NULL)
@@ -20,7 +20,6 @@ char *my_strcat_dup(char *str1, char *str2)
     for (size_t j = 0; str2[j] != '\0'; j++, i++) {
         res[i] = str2[j];
     }
-    res[i] = '\0';
     free(str1);
     return (res);
 }
