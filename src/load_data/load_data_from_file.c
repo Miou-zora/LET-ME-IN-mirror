@@ -7,6 +7,24 @@
 
 #include "lem_in.h"
 
+char *my_strcat_dup(char *str1, char *str2)
+{
+    char *res = my_calloc(my_strlen(str1) + my_strlen(str2) + 2, sizeof(char));
+    size_t i = 0;
+
+    if (res == NULL)
+        return (NULL);
+    for (size_t j = 0; str1[j] != '\0'; j++, i++) {
+        res[i] = str1[j];
+    }
+    for (size_t j = 0; str2[j] != '\0'; j++, i++) {
+        res[i] = str2[j];
+    }
+    res[i] = '\0';
+    free(str1);
+    return (res);
+}
+
 int free_buff_and_file(char *file, char *buff, char **file_data,
 int return_value)
 {

@@ -15,6 +15,7 @@ void init_data(data_t *data_s)
     data_s->path = NULL;
     data_s->every_rooms = NULL;
     data_s->nb_ants = 0;
+    data_s->is_error = 0;
 }
 
 void free_data(data_t *data_s)

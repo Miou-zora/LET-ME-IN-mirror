@@ -98,9 +98,10 @@ clean:
 tests_run:		tclean $(NAME)
 		$(CC) $(SRC) $(LISTSRC) $(TEST_FONC) $(TESTS_FLAGS) $(LFLAGS) -o	\
 		$(TEST_BINARY)
-			./$(TEST_BINARY)
-			gcovr -e tests
-			gcovr -e tests -bu
+		./$(TEST_BINARY)
+		gcovr -e tests
+		gcovr -e tests -bu
+		./tests/test_memory_leak.sh
 
 tclean:
 			@$(RM) tests/*.gc*
