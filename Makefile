@@ -95,13 +95,13 @@ clean:
 			@$(RM) $(OBJ_TEST)
 			@$(MK) -C lib/my/ clean
 
-tests_run:		tclean $(NAME)
+tests_run:		tclean debug
+		./tests/test_memory_leak.sh
 		$(CC) $(SRC) $(LISTSRC) $(TEST_FONC) $(TESTS_FLAGS) $(LFLAGS) -o	\
 		$(TEST_BINARY)
 		./$(TEST_BINARY)
 		gcovr -e tests
 		gcovr -e tests -bu
-		./tests/test_memory_leak.sh
 
 tclean:
 			@$(RM) tests/*.gc*

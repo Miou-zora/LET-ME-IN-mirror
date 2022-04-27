@@ -7,8 +7,6 @@
 
 #!/bin/bash
 
-make debug
-
 for i in $(find -type f -path "./tests/maps/*.map");
 do
     valgrind --error-exitcode=3 ./lem_in < $i
